@@ -1,0 +1,285 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/footer.css);
+@import url(/css/common/header.css);
+@import url(/css/common/chat-bot.css);
+/* tracks */
+
+.container {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 150px 0;
+}
+.container .container-con {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.container .container-con .track {
+	width: 1166px;
+}
+.container .container-con .track-filters {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.container .container-con .track-filters h1.tracks {
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-size: 40px;
+	padding: 30px 0;
+	box-sizing: border-box;
+	letter-spacing: 2px;
+}
+.container .container-con .track-filters .option {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+.container .container-con .track-filters select {
+	width: 305px;
+	height: 40px;
+	border-radius: 3px;
+	background-color: #000000;
+	color: #ffffff;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 0 8px;
+	box-sizing: border-box;
+	margin-right: 5px;
+}
+.container .container-con .track-filters form {
+	width: 80%;
+	background-color: #ffffff;
+	box-shadow: 0 1px 3px #cccccc;
+	height: 40px;
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .container-con .track-filters .search-bar {
+	width: 80%;
+	background-color: #ffffff;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+}
+.container .container-con .track-filters .search-bar img {
+	height: 20px;
+	width: 20px;
+}
+.container .container-con .track-filters .search-bar input.s1 {
+	width: 50%;
+	height: 100%;
+	border: none;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.container .container-con .track-filters .search-bar input.s2 {
+	width: 10%;
+	height: 20px;
+	border: none;
+	border: 1px solid #cccccc;
+	border-radius: 10px;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	background-color: #cccccc2f;
+	cursor: pointer;
+}
+.container .container-con .track-filters .search-bar input::placeholder {
+	font-size: 15px;
+	text-align: center;
+	opacity: 0.65;
+}
+.container .item-con {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.container .item-con .item {
+	width: 1166px;
+	text-align: center;
+	padding: 30px;
+	box-sizing: border-box;
+}
+.container .item-con .item .item-filter ul {
+	height: 30px;
+	display: flex;
+}
+.container .item-con .item .item-filter ul li {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	opacity: 0.65;
+	display: flex;
+}
+.container .item-con .item .item-filter ul li:nth-child(1) {
+	flex: 6;
+	display: flex;
+	justify-content: center;
+	padding: 0 200px 0 0;
+	box-sizing: border-box;
+}
+.container .item-con .item .item-filter ul li:nth-child(2) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+}
+.container .item-con .item .item-filter ul li:nth-child(3) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+}
+.container .item-con .item .item-filter ul li:nth-child(4) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	margin-left: 20px;
+	margin-right: 40px;
+}
+.container .item-con .item .item-filter ul li:nth-child(5) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	margin-right: 324px;
+	margin-left: 10px;
+}
+.container .item-con .item .items {
+	width: 100%;
+	height: auto;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.container .item-con .item .items ul {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	margin-top: 30px;
+	align-items: center;
+	border-bottom: 1px solid #cccccc;
+	box-sizing: border-box;
+}
+.container .item-con .item .items ul li {
+	font-size: 15px;
+	font-weight: 600;
+	height: 40px;
+	line-height: 40px;
+}
+.container .item-con .item .items ul > li:nth-child(1) {
+	flex: 1;
+	max-width: 40px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-right: 45px;
+}
+.container .item-con .item .items ul > li:nth-child(1) img {
+	width: 40px;
+}
+.container .item-con .item .items ul > a {
+	flex: 2;
+	display: flex;
+	justify-content: flex-start;
+	max-width: 300px;
+	min-width: 50px;
+	margin-right: 35px;
+	cursor: default;
+}
+/*이지창*/
+.container .item-con .item .items ul > li > form > a {
+    text-decoration: none;
+
+    text-align: center;
+    display: flex;
+    color: white;
+}
+
+.container .item-con .item .items ul > li > form{
+    text-align : center;
+    display : flex;
+    align-items : center;
+}
+.container .item-con .item .items ul > li > form > button {
+text-decoration: none;
+    text-align: center;
+    display: flex;
+    background-color : black;
+    gap:10px;
+}
+.container .item-con .item .items ul > li > form > button > div {
+    transform: translateY(4px);
+    font-size: 14px;
+    color: #ffffff;
+}
+/*이지창*/
+.container .item-con .item .items ul > a > li {
+	width: auto;
+}
+.container .item-con .item .items ul > a > li:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.container .item-con .item .items ul li:nth-child(3) {
+	flex: 1;
+	justify-content: flex-end;
+	max-width: 70px;
+}
+.container .item-con .item .items ul li:nth-child(4) {
+	flex: 1;
+	max-width: 70px;
+}
+.container .item-con .item .items ul li:nth-child(5) {
+	flex: 1;
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-left: 5px;
+}
+.container .item-con .item .items ul li:nth-child(6) {
+	max-width: 120px;
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-right: 150px;
+}
+.container .item-con .item .items ul li:nth-child(7) {
+	flex: 3;
+	max-width: 140px;
+	background-color: #000000;
+	border-radius: 3px;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+.container .item-con .item .items ul li:nth-child(7) a img {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 15px;
+	transform: translateY(8px);
+}
+
+.container .item-con .item .paging {
+	width: 100%;
+	height: auto;
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+.container .item-con .item .paging a {
+	max-width: 50px;
+}
+.container .item-con .item .paging span {
+	max-width: 10px;
+}

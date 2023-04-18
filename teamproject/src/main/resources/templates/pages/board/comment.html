@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/board/comment.css">
+    <script src="/static/js/board/comment.js" defer></script>
+    <!-- 필수 js -->
+    <script src="/js/common/header.js" defer></script>
+    <script src="/js/common/footer.js" defer></script>
+    <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+    <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+    <script th:src="@{/js/common/chat.js}" defer></script>
+    <!-- 필수 js -->
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="comment">
+        <div class="comment-con">
+            <form action="writeComment" class="commentInputCon" method="get">
+                <ul class="commentInput">
+                    <li>
+                        <textarea name="commentsData" id="commentsInputData" placeholder="Type comments" cols="20px"
+                            rows="3px"></textarea>
+                    </li>
+                    <li>
+                        <button class="commentSubmit">Write</button>
+                    </li>
+                </ul>
+            </form>
+            <div class="comment-data hide">
+                <div class="comment-column">
+                    <ul class="column">
+                        <!-- <li>
+                            <div>No</div>
+                        </li> -->
+                        <li>
+                            <div>writer</div>
+                        </li>
+                        <li>
+                            <div>text</div>
+                        </li>
+                        <li>
+                            <div>time</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="comment-lists">
+                    <ul class="lists">
+                        <!-- <li>
+                        <div>1</div>
+                    </li> -->
+                        <li>
+                            <div>Julie</div>
+                        </li>
+                        <li>
+                            <div class="texts">Hey this song is amazing. I can listen to this one all day long. I really
+                                like how you melted your charateric feature into this awesome tune. Keep on making such
+                                good
+                                musics!</div>
+                        </li>
+                        <li>
+                            <div>2023-02-16 19시 23분</div>
+                        </li>
+                    </ul>
+                    <ul class="lists">
+                        <!-- <li>
+                        <div>1</div>
+                    </li> -->
+                        <li>
+                            <div>Julie</div>
+                        </li>
+                        <li>
+                            <div class="texts">Hey this song is amazing. I can listen to this one all day long. I really
+                                like how you melted your charateric feature into this awesome tune. Keep on making such
+                                good
+                                like how you melted your charateric feature into this awesome tune. Keep on making such
+                                good
+                                        good
+                                musics!</div>
+                        </li>
+                        <li>
+                            <div>2023-02-16 19시 23분</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

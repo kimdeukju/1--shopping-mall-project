@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1seog2jo login</title>
+    <!--  <link rel="stylesheet" href="../../static/css/login/login.css">-->
+    <link rel="stylesheet" th:href="@{/css/member/login.css}">
+</head>
+
+<body>
+<div class="container">
+    <div class="login">
+        <div class="login-form">
+            <form th:action="@{/login}" method="post" id="loginForm">
+                <ul>
+                    <li class="s1">Sign In</li>
+                    <li class="s2"><input type="text" name="email" id="email" placeholder="Enter Email" aria-label="이메일 입력"
+                                          class="text" minlength="4" maxlength="30">
+                    </li>
+                    <input th:value="${currentPrincipal}" hidden="hidden" id="currentPrincipal">
+                    <li class="s2"><input type="password" name="password" id="password" placeholder="Enter Password"
+                                          aria-label="비밀번호" class="text" minlength="4" maxlength="10">
+                    </li>
+                    <span th:if="error">
+                        <p id="valid" style="color:#ff0000; font-size:12px;" th:text="${exception}"></p>
+                    </span>
+
+
+
+                    <li class="s4">
+                        <input type="submit" class="loginOk" value="sign in">
+                    </li>
+                    <li class="s5">
+                        <div>
+                            <hr width="165px">
+                        </div>
+                        <div>
+                            OR
+                        </div>
+                        <div>
+                            <hr width="165px">
+                        </div>
+                    </li>
+                    <a th:href="@{/join}" class="s3Sub">Sign Up</a>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

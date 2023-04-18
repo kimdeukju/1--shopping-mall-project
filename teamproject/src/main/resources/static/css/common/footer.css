@@ -1,0 +1,79 @@
+/* Footer */
+/* height has to 50px or little more than that */
+
+.footer {
+    width: 100%;
+    height: auto;
+    padding: 72px 0 92px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer .footer-con{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .footer-con .detail-con{
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer .footer-con .detail-con .logo{
+    width: auto;
+    height: 50px;
+}
+.footer .footer-con .detail-con .logo a{
+    width: auto;
+    height: auto;
+    display: block;
+}
+.footer .footer-con .detail-con .logo a img{
+    width: auto;
+    height: 50px;
+}
+
+/* contactInfo의 자리 배치 */
+
+.footer .footer-con .detail-con .contactInfo{
+    display: flex;
+}
+.footer .footer-con .detail-con .contactInfo>li{
+    padding: 0 50px;
+}
+
+.footer .footer-con .detail-con .contactInfo>li{
+    padding: 0 50px;
+}
+
+
+.footer .footer-con .detail-con .contactInfo>li>ul{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+/* socialContactPoint의 자리배치 */
+
+.footer .footer-con .detail-con .socialContactPoint{
+    display: flex;
+}
+.footer .footer-con .detail-con .socialContactPoint li a{
+    padding: 0 20px;
+}
+.footer .footer-con .detail-con .socialContactPoint li a img{
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    border-radius: 100%;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+

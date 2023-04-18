@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" th:href="@{/css/member/mypage.css}">
+
+    <script src="/static/js/header.js" defer></script>
+    <script src="/static/js/footer.js" defer></script>
+</head>
+<body>
+<div class="header" th:insert="/pages/common/header :: header"></div>
+
+<div class="container">
+    <div class="container-con">
+        <h1 class="logo">Credentials</h1>
+        <div class="accont-row">
+
+            <div class="row-text">
+                <label>E-mail address</label> <br>
+                <input class="info-text" type="text" th:value="${member.email}" readonly>
+            </div>
+
+            <div class="row-text">
+                <label class="address">Billing address</label> <br>
+                <input class="info-text" type="text"  th:value="${member.zip_code}" readonly><br>
+                <input class="info-text" type="text"  th:value="${member.homeAddress}" readonly><br>
+                <input class="info-text" type="text"  th:value="${member.DetailAddress}" readonly>
+            </div>
+
+            <div class="row-text">
+                <label>Username</label> <br>
+                <input class="info-text" type="text"  th:value="${member.userName}" readonly>
+            </div>
+
+            <div class="row-text">
+                <label>Phone-number</label> <br>
+                <input class="info-text" type="text"  th:value="${member.phone}" readonly>
+            </div>
+
+            <div class="user-up">
+                <button><a th:href="@{|/member/update/${#authentication.principal.username}|}">회원수정</a></button>
+                <!--                    <button><a th:href="@{|/delete/${#authentication.principal.username}|}">회원탈퇴</a></button>-->
+                <!--                    <button><a th:href="@{|/delele/${member.id}|}">회원탈퇴</a></button>-->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="footer" th:insert="/pages/common/Footer :: footer"></div>
+</body>
+</html>

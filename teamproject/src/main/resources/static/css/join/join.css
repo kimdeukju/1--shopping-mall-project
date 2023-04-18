@@ -1,0 +1,77 @@
+@import url(/css/common/reset.css);
+
+/* container */
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+}
+.container .join {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.container .join .join-form {
+	width: 400px;
+	border: 1px solid #cccccc;
+	background-color: #cccccc15;
+	box-sizing: border-box;
+	padding: 20px;
+	border-radius: 8px;
+	height: auto;
+}
+/* 테이블 */
+.container .join .join-form ul {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.container .join .join-form ul li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.container .join .join-form ul li input {
+	width: 100%;
+	height: auto;
+	font-size: 12px;
+	padding: 5px 13px;
+	box-sizing: border-box;
+	letter-spacing: 0.3px;
+	border: none;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+}
+.container .join .join-form ul li.s1 {
+	font-size: 22px;
+	letter-spacing: 0.5px;
+	text-align: center;
+}
+.container .join .join-form ul li .s3 {
+	flex: 1;
+	font-size: 12px;
+	padding: 5px 10px;
+	box-sizing: border-box;
+	letter-spacing: 0.3px;
+	color: #818181;
+	border: none;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+}
+.container .join .join-form ul li.s4 {
+	text-align: center;
+}
+.container .join .join-form ul li input.joinOk {
+	font-size: 12px;
+	background: #cccccc80;
+	border: none;
+	color: #0d0d0ddb;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.container .join .join-form ul li .s5 {
+	flex: 1;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/js/header.js" defer></script>
+    <script src="/static/js/footer.js" defer></script>
+    <link rel="stylesheet" th:href="@{/css/member/myitem.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}">
+    <link rel="stylesheet" th:href="@{/css/common/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/common/reset.css}">
+    <title>Document</title>
+</head>
+
+<body>
+<div class="header" th:replace="/pages/common/Header :: header"></div>
+
+<div class="container">
+    <div class="container-con">
+        <div class="logo-box">
+            <h2 class="logo">Cart Review</h2>
+            <label>Specification</label>
+        </div>
+
+        <div class="main">
+            <div class="left">
+
+                <div class="item-data">
+                    <div class="data-info">
+                        <ul>
+                            <li></li>
+                            <li>PRODUCT</li>
+                            <li>PRICE</li>
+                        </ul>
+                    </div>
+                    <div class="info-data">
+                        <ul th:each="list : ${cartItem}">
+                            <li><img src="/img/track/music.png" alt=""></li>
+                            <li th:text="${list.producer}"></li>
+                            <li th:text="${list.price}"></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="right">
+                <div class="gross">
+                    <ul>
+                        <li>Payment Information</li>
+                    </ul>
+                </div>
+                <div class="discount">
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="total">
+                    <ul>
+                        <li>Person who pay</li>
+                        <li th:text=" ${member}"></li>
+                    </ul>
+                </div>
+
+                <div class="pay">
+                    <p>You are checking out as ${name} Not you? <a th:href="@{/logout}">sign out</a></p>
+                    <button onclick="location.href='#'">PAY VIA PAYPAL</button >
+                    <button onclick="location.href='#'">PAY VIA SRRIPE</button >
+                </div>
+                <div class="error">
+                    <p>By clicking the button you accept the product(s)
+                        License Agreement(s)</p>
+                    <p>Please read our <a href="https://help.beatstars.com/hc/en-us/articles/206090118-Refund-Policy">
+                        Refund Policy.</a></p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+</body>
+
+</html>

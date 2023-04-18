@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>itemList</title>
+  <link rel="stylesheet" href="/css/track/trackList.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/js/track/trackList.js" defer></script>
+  <script src="/js/common/header.js" defer></script>
+  <script src="/js/common/footer.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js" defer></script>
+  <!-- 필수 js -->
+  <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+  <!-- 필수 js -->
+  <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+  <script th:src="@{/js/common/chat.js}" defer></script>
+</head>
+
+<body>
+<div class="header" th:replace="/pages/common/Header :: header"></div>
+  <div class="container">
+    <div class="container-con">
+      <div class="track">
+        <div class="track-filters">
+          <h1 class="tracks">Tracks</h1>
+          <div class="option">
+            <form th:action="@{/trackList}" method="get">
+              <div class="filters">
+                <select class="filter" name="bpm" id="bpm" onchange="changeSelect(event)">
+                  <option value="null">All Bpm</option>
+                  <option value="63">63</option>
+                  <option value="75">75</option>
+                  <option value="81">81</option>
+                  <option value="97">97</option>
+                  <option value="108">108</option>
+                  <option value="126">126</option>
+                </select>
+              </div>
+              <div class="filters">
+                <select class="filter" name="genre" id="genre" onchange="changeSelect(event)">
+                  <option value="null">All Genres</option>
+                  <option value="Rnb">Rnb</option>
+                  <option value="Soul">Soul</option>
+                  <option value="Pop">Pop</option>
+                  <option value="Funk">Funk</option>
+                  <option value="Trap">Trap</option>
+                  <option value="Reggae">Reggae</option>
+                </select>
+              </div>
+              <div class="filters">
+                <select class="filter" name="price" id="price" onchange="changeSelect(event)">
+                  <option value="null">All Price</option>
+                  <option value="29.95">29.95</option>
+                  <option value="49.95">49.95</option>
+                  <option value="99.95">99.95</option>
+                  <option value="199.95">199.95</option>
+                </select>
+              </div>
+            </form>
+          </div>
+          <form th:action="@{/trackList}" method="get">
+            <div class="search-bar">
+              <img src="/img/track/search.png" alt="search-icon">
+              <input type="search" name="search" id="search" class="s1"
+                placeholder="What type of track are you looking for?" style="text-align:center;">
+              <input type="submit" class="s2" value="search">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="item-con">
+      <div class="item">
+        <div class="item-filter">
+          <ul>
+            <li>TITLE</li>
+            <li>TIME</li>
+            <li>BPM</li>
+            <li>PRODUCER</li>
+            <li>GENRE</li>
+          </ul>
+        </div>
+        <div class="items">
+
+          <ul th:each="list: ${list}">
+            <li><img src="/img/track/music.png" alt=""></li>
+            <a th:if="${member !=null}" th:href="@{|/trackDetail/${list.no}/${member}|}">
+              <li th:text="${list.title}"></li>
+            </a>
+
+            <a th:if="${member ==null}" th:href="@{/login}">
+              <li th:text="${list.title}"></li>
+            </a>
+
+            <li th:text="${list.duration}"></li>
+            <li th:text="${list.bpm}"></li>
+            <li th:text="${list.producer}"></li>
+            <li th:text="${list.genre}"></li>
+            <li>
+              <form th:action="@{|/cart/${member}/${list.no}|}" method="post">
+                <a th:if="${member == null}" th:href="@{/login}" > <!--member아닐시-->
+                  <img src="/img/track/shopping-bag.png" alt="shopping-bag-icon">
+                  <div th:text="${list.price}"></div>
+                </a>
+
+                <button th:if="${member != null}" type="submit" id="userCart" name="userCart"> <!--멤버일 시-->
+                  <img src="/img/track/shopping-bag.png" alt="shopping-bag-icon">
+                  <div th:text="${list.price}"></div>
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+        <div class="paging">
+          <a th:href="${list.first} ? '#' : @{/trackList}">
+            << </a>
+              <th:block th:each="page: ${#numbers.sequence(startPage, endPage)}">
+                <input type="text" th:value="${list.number}" hidden="hidden" id="listNumber">
+                <span th:if="${page == nowPage}" th:text="${page}" th:classappend="class1"
+                  style="color: #000000;"></span>
+                <span th:unless="${page == nowPage}">
+                  <a class="pagingNum" th:href="@{/trackList(page=${page-1})}" style="color: #00000059;"
+                    th:text="${page}"></a>
+                </span>
+              </th:block>
+              <a th:href="${list.last} ? '#' : @{/trackList}">>></a>
+        </div>
+      </div>
+<div class="chat" th:replace="/pages/common/chatBot :: chatBot"></div>
+    </div>
+  </div>
+<div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+</body>
+
+</html>

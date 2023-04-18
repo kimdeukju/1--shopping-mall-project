@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script src="/js/admin/admin.js" defer></script>
+</head>
+
+<!--<div class="adminHeader" th:insert="/pages/common/adminHeader :: adminHeader">-->
+    <div class="adminHeader-con" th:fragment="adminHeader">
+        <div class="gnb">
+            <div class="logo">
+                <a th:href="@{/}" sec:authorize="isAnonymous()">
+                    <img src="/img/common/head/logo.png" alt="LogoImage">
+                </a>
+                <a th:href="@{/memberMain}" sec:authorize="isAuthenticated()">
+                    <img src="/img/common/head/logo.png" alt="LogoImage">
+                </a>
+            </div>
+            <div class="main-menu-con">
+                <ul>
+                    <li>
+                        <div class="li-con">
+                            <div class="left-menu">
+                                <ul>
+                                    <li><a th:href="@{/trackList}">Tracks</a>
+                                        <div class="topMenuOptions hideLeftNavContents">
+                                            <ul id="track-con-lists">
+                                                <li><a th:href="@{/trackAdd}">- 새로운 트랙 넣기</a></li>
+                                                <li><a th:href="@{/trackUpdate}">- 트랙 정보 수정</a></li>
+                                                <li><a href="#">- 나의 트랙</a></li>
+                                                <li><a th:href="@{/trackList}">- 전체 트랙</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a th:href="@{/#}">Board</a>
+                                        <div class="topMenuOptions hideLeftNavContents">
+                                            <ul id="board-con-lists">
+                                                <li><a href="#">- 게시글 쓰기</a></li>
+                                                <li><a href="#">- 게시글 수정</a></li>
+                                                <li><a href="#">- 전체 게시글</a></li>
+                                                <!-- <li><a href="#">- Board Delete page</a></li> -->
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a th:href="@{/#}">Members</a>
+                                        <div class="topMenuOptions hideLeftNavContents">
+                                            <ul id="members-con-lists">
+                                                <li><a href="#">- 회원 입력</a></li>
+                                                <li><a href="#">- 회원 정보 수정</a></li>
+                                                <li><a th:href="@{/admin/memberList}">- 전체 회원 조회</a></li>
+
+                                                <!-- <li><a href="#">- Members Delete pag</a></li> -->
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a th:href="@{/#}">FAQ</a>
+                                        <div class="topMenuOptions hideLeftNavContents">
+                                            <ul id="FAQ-con-lists">
+                                                <li><a href="#">- 문의사항 리스트</a></li>
+                                                <!-- <li><a href="#">- FAQ Update page</a></li> -->
+                                                <li><a href="#">- 문의사항 답변하기</a></li>
+                                                <!-- <li><a href="#">- FAQ Delete page</a></li> -->
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a th:href="@{/#}">Employees</a>
+                                        <div class="topMenuOptions hideLeftNavContents">
+                                            <ul id="Employees-con-lists">
+                                                <li><a href="#">- 네이버 워크스페이스</a></li>
+                                                <li><a href="#">- 직원 등록</a></li>
+                                                <li><a href="#">- 직원 정보 수정</a></li>
+                                                <li><a href="#">- 부서별 직원 리스트</a></li>
+                                                <li><a href="#">- 권한 부여</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a th:href="@{/#}">AdminInfo</a>
+                                        <div class="topMenuOptions hideLeftNavContents">
+                                            <ul id="AdminInfo-con-lists">
+                                                <li><a href="#">- Admin 정보 수정</a></li>
+                                                <!-- <li><a href="#">- </a></li>
+                                                <li><a href="#">- </a></li>
+                                                <li><a href="#">- </a></li> -->
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="right-menu hide2">
+                                <input type="text" id="searchBar" size="68" placeholder="Search beats">
+                            </div>
+                        </div>
+                        <!-- <div class="s-img">
+                            <img src="/img/common/head/magnifier.png" alt="searchImg" id="magnifier">
+                        </div> -->
+                    </li>
+                    <li class="li-last">
+                        <a th:href="@{/#}">
+                            <div class="currentTime"></div>
+                        </a>
+                        <a th:href="@{/#}">
+                            <div class="myImg">Charlie</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</html>

@@ -1,0 +1,464 @@
+@import url("/css/common/reset.css");
+@import url("/css/common/footer.css");
+@import url("/css/common/header.css");
+@import url("/css/common/chat-bot.css");
+
+.main {
+	width: 100%;
+	height: auto;
+	padding: 150px 0 0;
+	background: \linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 0)),url(/img/Main/mainBg.jpg);
+}
+
+.main .main-con {
+	height: auto;
+}
+
+/* 앨범 커버 변하는 컨테이너 설정 */
+.main .main-con .imageChange {
+	height: auto;
+	width: 100%;
+	background-color: #000000;
+	box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+		rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+
+}
+.main .main-con .controller-box{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    transform: translate(90px,-50px);
+}
+
+.main .main-con .imageChange .imageChange-con {
+	height: auto;
+	height: 500px;
+	transform: translate(-140px,-50px);
+}
+
+.main .main-con .imageChange .imageChange-con li {
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	justify-content: center;
+
+	/* border: 1px solid yellow;
+    box-sizing: border-box; */
+}
+
+.main .main-con .imageChange .imageChange-con li img {
+	width: 500px;
+	height: 500px;
+	box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* 앨범에 대한 간략한 정보 보여주는 칸 */
+.main .main-con .imageChange .albumShortInfo-con {
+	display: flex;
+	height: auto;
+	justify-content: center;
+	align-items: center;
+}
+.main .main-con .imageChange .albumShortInfo-con .albumShortInfo > li {
+	display: flex;
+	justify-content: center;
+	row-gap: 20px;
+	height: auto;
+}
+.main .main-con .imageChange .albumShortInfo-con .albumShortInfo #title {
+	font-size: 50px;
+	height: auto;
+	color: #ffffff;
+}
+.main .main-con .imageChange .albumShortInfo-con .albumShortInfo #singer {
+	font-size: 20px;
+	height: auto;
+	color: #ffffff;
+}
+
+/* 앨범 커버 변하는 컨테이너 컨트롤러 */
+.main .main-con .imageChange .change-controller {
+	display: flex;
+	padding: 20px 10px;
+	height: auto;
+}
+
+.main .main-con .imageChange .change-controller .changebuttons {
+	width: 90%;
+	height: 100%;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main .main-con .imageChange .change-controller .changebuttons > div {
+	width: 100%;
+	height: 100%;
+	/* background-color: rgb(234, 237, 240);     */
+	border: none;
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+}
+
+.main .main-con .imageChange .change-controller .changebuttons > div button {
+	flex: 1;
+	display: flex;
+	height: 60%;
+	justify-content: center;
+	align-items: center;
+	background-color: #bababa;
+	border-left: 15px solid #969696;
+	border-top: 10px solid #e0e0e0;
+	border-right: 15px solid #969696;
+	border-bottom: 10px solid #817f7f;
+	border-radius: 15px;
+	box-sizing: border-box;
+}
+
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(1)
+	#t1 {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border-top: 10px solid transparent;
+	border-left: 0 solid transparent;
+	border-right: 10px solid #201e1e;
+	border-bottom: 10px solid transparent;
+	box-sizing: border-box;
+	/* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+}
+
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(1)
+	#t2 {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border-top: 10px solid transparent;
+	border-left: 0 solid transparent;
+	border-right: 10px solid #201e1e;
+	border-bottom: 10px solid transparent;
+	/* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+}
+
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(2)
+	#show {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border-top: 10px solid transparent;
+	border-left: 10px solid #201e1e;
+	border-right: 0 solid transparent;
+	border-bottom: 10px solid transparent;
+	/* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+}
+
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(3)
+	#f1 {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border-top: 10px solid transparent;
+	border-left: 10px solid #201e1e;
+	border-right: 0 solid transparent;
+	border-bottom: 10px solid transparent;
+	/* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+}
+
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(3)
+	#f2 {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+	border-top: 10px solid transparent;
+	border-left: 10px solid #201e1e;
+	border-right: 0 solid transparent;
+	border-bottom: 10px solid transparent;
+	/* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+	box-sizing: calc();
+}
+
+/* 버튼을 눌렀을 때 애니메이션 */
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(1):active {
+	background-color: #bababa;
+	border-left: 15px solid #878585;
+	border-top: 10px solid #d3d3d3;
+	border-right: 15px solid #878585;
+	border-bottom: 10px solid #676767;
+}
+
+/* .main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(1):active
+	#t1 {
+	border-right: 10px solid white;
+}
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(1):active
+	#t2 {
+	border-right: 10px solid white;
+} */
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(2):active {
+	background-color: #bababa;
+	border-left: 15px solid #878585;
+	border-top: 10px solid #d3d3d3;
+	border-right: 15px solid #878585;
+	border-bottom: 10px solid #676767;
+}
+
+/* .main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(2):active
+	#show {
+	border-left: 10px solid white;
+} */
+
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(3):active {
+	background-color: #bababa;
+	border-left: 15px solid #878585;
+	border-top: 10px solid #d3d3d3;
+	border-right: 15px solid #878585;
+	border-bottom: 10px solid #676767;
+}
+/* .main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(3):active
+	#f1 {
+	border-left: 10px solid white;
+}
+.main
+	.main-con
+	.imageChange
+	.change-controller
+	.changebuttons
+	> div
+	button:nth-child(3):active
+	#f2 {
+	border-left: 10px solid white;
+} */
+
+/* 들어있는 음악에 대한 전체 리스트 */
+
+/* 전체적인 크기 조절 */
+.main .main-con .itemsList {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	background: #fff;
+}
+.main .main-con .itemsList .item {
+	width: 1166px;
+	text-align: center;
+	padding: 30px;
+	box-sizing: border-box;
+}
+.main .main-con .itemsList .item .item-filter{
+    width:100%
+    height:auto;
+}
+.main .main-con .itemsList .item .item-filter ul {
+	height: 30px;
+	display: flex;
+}
+.main .main-con .itemsList .item .item-filter ul li {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	opacity: 0.65;
+	display: flex;
+}
+.main .main-con .itemsList .item .item-filter ul li:nth-child(1) {
+	flex: 6;
+	display: flex;
+	justify-content: center;
+	padding: 0 200px 0 0;
+	box-sizing: border-box;
+}
+.main .main-con .itemsList .item .item-filter ul li:nth-child(2) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+}
+.main .main-con .itemsList .item .item-filter ul li:nth-child(3) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+}
+.main .main-con .itemsList .item.item-filter ul li:nth-child(4) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	margin-left: 20px;
+	margin-right: 40px;
+}
+.main .main-con .itemsList .item .item-filter ul li:nth-child(5) {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	margin-right: 324px;
+	margin-left: 10px;
+}
+.main .main-con .itemsList .item .items{
+    width:100%
+    height:auto;
+}
+.main .main-con .itemsList .item .items ul {
+	width: 100%;
+	height: 60px;
+	display: flex;
+	margin-top: 30px;
+	align-items: center;
+	border-bottom: 1px solid #cccccc;
+	box-sizing: border-box;
+}
+.main .main-con .itemsList .item .items ul li {
+	font-size: 15px;
+	font-weight: 600;
+	height: 40px;
+	line-height: 40px;
+}
+.main .main-con .itemsList .item .items ul > li:nth-child(1) {
+	flex: 1;
+	max-width: 40px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-right: 65px;
+}
+.main .main-con .itemsList .item .items ul > li:nth-child(1) img {
+	width: 40px;
+}
+.main .main-con .itemsList .item .items ul > a {
+	flex: 2;
+	display: flex;
+	justify-content: flex-start;
+	max-width: 300px;
+	min-width: 50px;
+	margin-right: 170px;
+	cursor: default;
+}
+.main .main-con .itemsList .item .items ul > a > li {
+	width: auto;
+}
+.main .main-con .itemsList .item .items ul > a > li:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.main .main-con .itemsList .item .items ul li:nth-child(3) {
+	flex: 1;
+	justify-content: flex-end;
+	max-width: 70px;
+	margin-right: 10px;
+}
+.main .main-con .itemsList .item .items ul li:nth-child(4) {
+	flex: 1;
+	max-width: 70px;
+}
+.main .main-con .itemsList .item .items ul li:nth-child(5) {
+	flex: 1;
+	max-width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-left: 5px;
+}
+.main .main-con .itemsList .item .items ul li:nth-child(6) {
+	max-width: 120px;
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-right: 170px;
+}
+.main .main-con .itemsList .item .items ul li:nth-child(7) {
+	flex: 3;
+	max-width: 140px;
+	background-color: #000000;
+	border-radius: 3px;
+	color: #ffffff;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+	margin-right: 10px;
+}
+.main .main-con .itemsList .item .items ul li:nth-child(7) a img {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	margin-right: 15px;
+	transform: translateY(4px);
+}

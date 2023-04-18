@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+  <link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>itemDetail</title>
+  <link rel="stylesheet" href="/css/track/trackDetail.css">
+  <script src="/js/track/trackDetail.js" defer></script>
+  <script src="/js/common/header.js" defer></script>
+  <script src="/js/common/footer.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js" defer></script>
+  <!-- 필수 js -->
+  <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+  <!-- 필수 js -->
+  <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+  <script th:src="@{/js/common/chat.js}" defer></script>
+</head>
+
+<body>
+  <div class="header" th:replace="/pages/common/Header :: header"></div>
+  <div class="container">
+    <div class="container-con">
+      <div class="track-detail-top">
+        <div class="detail-top">
+          <div class="top-right">
+            <img src="/img/track/music.png" alt="">
+          </div>
+          <div class="top-left">
+            <div class="track-name" th:each="list: ${dto}">
+              <div><img src="/img/track/musicPlay.png" alt=""></div>
+              <div class="hover" th:text="${list.title}"></div>
+            </div>
+            <div class="company">Mixtape Seoul</div>
+            <div class="bpm-time" th:each="list: ${dto}">
+              <div class="bpm1">BPM</div>
+              <div class="bpm2" th:text="${list.bpm}"></div>
+              <div class="time1"><img src="/img/track/time.png" alt=""></div>
+              <div class="time2" th:text="*{#temporals.format(list.createTime, 'yyyy MM, dd')}"></div>
+            </div>
+            <div class="button" th:each="list: ${dto}">
+              <button sec:authorize="hasRole('ADMIN')"><a th:href="@{|/trackUpdate/${list.no}|}">update</a></button>
+              <button sec:authorize="hasRole('ADMIN')"><a th:href="@{|/trackDelete/${list.no}|}">delete</a></button>
+            </div>
+            <div class="action-tags">
+              <div class="action">
+                <div class="action1" th:each="list: ${dto}">
+                  <form th:action="@{|/cart/${memberNo}/${itemNo}|}" method="post">
+                    <button type="submit" id="userCart"><img src="/img/track/shopping-bag.png" alt="shopping-bag-icon">
+                      <div th:text="${list.price}"></div>
+                    </button>
+                  </form>
+                </div>
+              </div>
+              <div class="tags" th:each="list: ${dto}">
+                <a href="#" th:text="${list.producer}"></a>
+                <a href="#" th:text="${list.genre}"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="track-detail-middle">
+        <div class="detail-middle">
+          <div class="track-introduction class1">
+            <button class="track material-ripple " data-color="55555578">More Other Tracks</button>
+          </div>
+          <div class="artist-introduction class1">
+            <button class="artist material-ripple" data-color="55555578">Artist Introduction</button>
+          </div>
+        </div>
+      </div>
+      <div class="track-detail-bottom">
+        <div class="detail-bottom">
+          <div class="introduction1">
+
+            <div class="item-filter">
+              <ul>
+                <li>TITLE</li>
+                <li>TIME</li>
+                <li>BPM</li>
+                <li>PRODUCER</li>
+                <li>GENRE</li>
+              </ul>
+            </div>
+            <div class="introduction">
+              <ul th:each="list: ${itemDto}">
+                <li><img src="/img/track/music.png" alt=""></li>
+                <a th:if="${member !=null}" th:href="@{|/trackDetail/${list.no}/${memberNo}|}">
+                  <li th:text="${list.title}"></li>
+                </a>
+
+                <a th:if="${member ==null}" th:href="@{/login}">
+                  <li th:text="${list.title}"></li>
+                </a>
+
+                <li th:text="${list.duration}"></li>
+                <li th:text="${list.bpm}"></li>
+                <li th:text="${list.producer}"></li>
+                <li th:text="${list.genre}"></li>
+                <li>
+                  <form th:action="@{|/cart/${memberNo}/${itemNo}|}" method="post">
+                    <a th:if="${member == null}" th:href="@{/login}">
+                      <!--member아닐시-->
+                      <img src="/img/track/shopping-bag.png" alt="shopping-bag-icon">
+                      <div th:text="${list.price}"></div>
+                    </a>
+
+                    <button th:if="${member != null}" type="submit" id="userCart" name="userCart">
+                      <!--멤버일 시-->
+                      <img src="/img/track/shopping-bag.png" alt="shopping-bag-icon">
+                      <div th:text="${list.price}"></div>
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="introduction2 on">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Quae, dolor! Quos dolore dolorem, ut pariatur deserunt aliquid consequuntur ipsa sapiente,
+            quo illum magnam facere, eaque ducimus voluptatum quibusdam similique accusamus.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+            Fugit ab nihil vel dolorem dolorum molestiae similique rem temporibus quibusdam, accusantium minus,
+            alias, possimus rerum. Similique odio voluptate non recusandae deleniti?
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Explicabo eos earum facere, provident eveniet culpa veritatis, doloremque dicta voluptates pariatur
+            adipisci!
+            Nisi dolores quae fugit quasi eveniet ab error eum.
+            Explicabo minima, enim sunt repellat beatae sit, fugiat dicta quia, laudantium assumenda facilis sequi
+            omnis
+            aspernatur placeat molestias iste aut molestiae consectetur?
+            Eaque voluptatem aut debitis in laboriosam recusandae a!
+            Cupiditate, repellendus expedita, porro dolorum quidem cumque qui autem beatae perspiciatis in delectus
+            sequi excepturi,
+            officia molestias voluptatum quas saepe magnam placeat? Iure in fuga accusantium, quaerat possimus sint
+            quisquam?
+            Exercitationem corporis animi eos itaque neque assumenda reiciendis, voluptates,
+            tenetur dolorum accusantium cumque quaerat in nam aliquam facere suscipit. Similique culpa atque alias,
+            voluptatum aut dolorem dicta ex debitis rerum.
+            Dicta unde optio maiores eligendi deserunt ullam facere molestiae esse eveniet aspernatur sapiente,
+            quas sed ratione consectetur ea repellat magnam culpa eius sint fugiat repellendus rerum aut
+            necessitatibus quasi. Minus!
+            Rerum vitae iure iste odio dolore sed aliquid a quod reiciendis cum,
+            dicta facere dolor soluta voluptas hic ratione dolorum amet iusto ducimus dolorem numquam?
+            Tempore culpa vero libero sequi.
+            Doloribus eum repellendus, hic commodi animi aliquam, nam magnam minus ea quaerat nisi perferendis
+            eligendi
+            sapiente dicta nobis nemo iure rem ducimus molestias!
+            Aut consequuntur ab corrupti? Hic, at sit.
+            Perferendis maiores assumenda inventore omnis eligendi. Ea perspiciatis id ullam, totam officiis alias?
+            Iste harum iusto labore accusantium?
+            Error necessitatibus dolorem incidunt et repudiandae obcaecati facilis quasi tenetur repellendus
+            commodi!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ad. Illo maiores sed blanditiis inventore?
+            Suscipit expedita eveniet animi ex mollitia! Perferendis, nisi asperiores amet facere odit animi doloribus
+            dolorum.
+            Atque, illum ipsa. Eligendi ea reprehenderit incidunt ab laboriosam earum molestias natus, obcaecati
+            quibusdam ducimus odio ullam aut enim accusantium ad optio, nihil placeat maxime saepe eum, omnis delectus!
+            Neque!
+            Recusandae ipsam quisquam nam perferendis veritatis sed odit quas! Delectus hic modi, harum quidem placeat
+            eaque atque. Amet autem ratione eligendi, illum dolores, voluptatem architecto asperiores atque maxime
+            laboriosam accusamus!
+            Recusandae ipsam quisquam nam perferendis veritatis sed odit quas! Delectus hic modi, harum quidem placeat
+            eaque atque. Amet autem ratione eligendi, illum dolores, voluptatem architecto asperiores atque maxime
+            laboriosam accusamus!
+            Ducimus assumenda minima eum quam numquam neque excepturi dicta alias odio, eveniet accusamus ipsum
+            consequatur commodi in cupiditate veniam quaerat! Fuga veritatis illo ducimus, doloremque exercitationem
+            ullam obcaecati modi esse?
+            Aperiam quibusdam, facere placeat suscipit consectetur neque vel esse, animi deleniti aut necessitatibus
+            sapiente repellat. Error odio dolorum aspernatur aliquam molestiae reiciendis, architecto, enim doloremque
+            voluptatum amet, quisquam odit quo.
+            Aperiam quibusdam, facere placeat suscipit consectetur neque vel esse, animi deleniti aut necessitatibus
+            sapiente repellat. Error odio dolorum aspernatur aliquam molestiae reiciendis, architecto, enim doloremque
+            voluptatum amet, quisquam odit quo.
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat" th:replace="/pages/common/chatBot :: chatBot"></div>
+  </div>
+  </div>
+
+  <div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+</body>
+
+</html>

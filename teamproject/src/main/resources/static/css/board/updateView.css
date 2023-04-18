@@ -1,0 +1,156 @@
+@import url("/css/common/reset.css");
+@import url("/css/common/footer.css");
+@import url("/css/common/header.css");
+@import url("/css/common/chat-bot.css");
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  /* border: 1px solid; */
+  padding: 150px 0;
+    box-sizing: border-box;
+}
+
+.container .container-con {
+/*  margin: 40px;*/
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid; */
+}
+
+.container .container-con .update-form {
+  flex: inherit;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* border: 1px solid; */
+}
+
+.container .container-con .update-form>form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .container-con .update-form>form>ul>li {
+  margin: 10px;
+}
+
+/* .container .container-con .write-form>form>ul>li.li1 {} */
+
+.container .container-con .update-form>form>ul>li.title-error {
+  color: #d50000;
+  font-size: smaller;
+}
+
+
+.container .container-con .update-form>form>ul>li.li1>input {
+  border: none;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 500px;
+  height: 30px;
+  border-bottom: 1px solid #9b9b9b;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  width: 500px;
+  height: 40px;
+  padding: 10px;
+  gap: 10px;
+}
+
+.container .container-con .update-form>form>ul>li.li2 {
+  align-items: center;
+  /* padding: 5px; */
+  box-sizing: border-box;
+  /* border: 1px solid; */
+}
+
+/*js로 링크 입력창 안 보이게 처리하기(모달)*/
+.container .container-con .update-form>form>ul>li.li2>input.li2sub {
+  border: none;
+  width: 100px;
+  height: 23px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container .container-con .update-form>form>ul>li.li2>label {
+  gap: 10px;
+}
+
+.container .container-con .update-form>form>ul>li.li2>img {
+  width: 15px;
+  height: 15px;
+  width: 17px;
+  height: 17px;
+}
+
+.container .container-con .update-form>form>ul>li.li2>label>img {
+  width: 15px;
+  height: 15px;
+}
+
+.container .container-con .update-form>form>ul>li.li3>textarea {
+  width: 500px;
+  height: 600px;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 12px 2px rgba(227, 227, 227, 0.59);
+  resize: none;
+}
+
+.container .container-con .update-form>form>ul>li.content-error {
+  color: #d50000;
+  font-size: smaller;
+}
+
+.container .container-con .update-form>form>ul>li.li4 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.container .container-con .update-form>form>ul>li.li4 a {
+  width: 70px;
+  /* height: 30px; */
+  line-height: 30px;
+  text-align: center;
+}
+
+/* padding: 15px 20px; */
+
+.container-con .update-form>form>ul>li.li4 a {
+  width: 70px;
+  line-height: 30px;
+  text-align: center;
+  border: 0px solid;
+  /* padding: 10px; */
+  box-sizing: border-box;
+  background-color: black;
+  color: #ffffff;
+  border-radius: 5px 5px 5px 5px;
+  font-size: 14px;
+}
+
+.container .container-con .update-form>form>ul>li.li4 input {
+  width: 70px;
+  /* height: 30px; */
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  /* padding: 15px 20px; */
+  border: 0px solid;
+  box-sizing: border-box;
+  background-color: black;
+  color: #ffffff;
+  border-radius: 5px 5px 5px 5px;
+}

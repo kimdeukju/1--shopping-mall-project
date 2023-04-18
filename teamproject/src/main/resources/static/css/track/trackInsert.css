@@ -1,0 +1,103 @@
+@import url(/css/common/reset.css);
+@import url(/css/common/footer.css);
+@import url(/css/common/header.css);
+.container {
+	width: 100%;
+	height: auto;
+	padding: 150px 0;
+}
+.container .container-con {
+	width: 100%;
+	height: auto;
+	display: flex;
+	    flex-direction: column;
+      align-items: center;
+}
+.container .container-con .title {
+  width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+}
+.container .container-con .title h1.trackAdd {
+  font-size: 40px;
+  	letter-spacing: 1px;
+}
+.container .container-con .box {
+	width: 1166px;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.container .container-con .box .track-con {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	padding: 30px;
+	box-sizing: border-box;
+	box-shadow: 0 1px 3px #aaaaaa;
+	border-radius: 5px;
+	gap: 20px;
+}
+.container .container-con .box .track-con .track-name1 .file img{
+  width:125px;
+  height:125px;
+}
+.container .container-con .box .track-con .track-name {
+	display: flex;
+	align-items: center;
+}
+.container .container-con .box .track-con .track-name label {
+	flex: 3;
+	font-size: 14px;
+	color: #3f4254;
+}
+.container .container-con .box .track-con .track-name input {
+	flex: 7;
+	height: 40px;
+	border: none;
+	background-color: #cccccc55;
+	border-radius: 5px;
+}
+.container .container-con .box .track-con .track-name1 {
+	display: flex;
+}
+.container .container-con .box .track-con .track-name1 label {
+	width: 177px;
+	flex: 3;
+	font-size: 14px;
+	color: #3f4254;
+}
+.container .container-con .box .track-con .track-name1 .file {
+	flex: 7;
+}
+.container .container-con .box .track-con .img {
+	margin-left: 330px;
+}
+.container .container-con .box .track-con .track-name select {
+	flex: 7;
+	height: 40px;
+	border: none;
+	background-color: #cccccc55;
+	border-radius: 5px;
+	color: #3f4254;
+}
+
+.container .container-con .box .track-con .button {
+	display: flex;
+	justify-content: flex-end;
+	height: 40px;
+}
+.container .container-con .box .track-con .button button {
+	height: 100%;
+	padding: 0 20px;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 5px;
+	background-color: #000000;
+	color: #ffffff;
+	cursor: pointer;
+}

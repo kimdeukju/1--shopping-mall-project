@@ -1,0 +1,177 @@
+@import url("/css/common/reset.css");
+@import url("/css/common/footer.css");
+@import url("/css/common/header.css");
+@import url("/css/common/chat-bot.css");
+
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  /* border: 1px solid; */
+  padding: 150px 0;
+       box-sizing: border-box;
+}
+
+.container .container-con {
+  width: 100%;
+  /*margin: 20px;*/
+  flex: 0 0 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid #ff0000; */
+}
+
+.container .container-con .board-con {
+  width: 1125px;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  row-gap: 110px;
+  /* border: 1px solid #0000ff; */
+}
+
+
+/* 게시물 데이터 부분 */
+.container .container-con .board-con .boardview {
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* border: 1px solid; */
+}
+.container .container-con .board-con .boardview .postData{
+  display: grid;
+  row-gap: 20px;
+  column-gap: 20px;
+  /* 해당 grid의 두번째 column 값은 eachPost.js 파일의 onYoutubeIframeAPIReady함수내의 width를 따랐다. */
+  grid-template-columns: 1fr 300px;
+  /* 해당 grid의 첫번째 row 값은 eachPost.js 파일의 onYoutubeIframeAPIReady함수내의 height를 따랐다. */
+  grid-template-rows: 200px 1fr;
+}
+.container .container-con .board-con .boardview .postData .content{
+  grid-column: 1/2;
+  grid-row: 1/2;  
+}
+.container .container-con .board-con .boardview .postData #player{
+  grid-column: 2/3;
+  grid-row: 1/2;  
+}
+.container .container-con .board-con .boardview .postData .imagesOfPost{
+  grid-column: 1/3;
+  grid-row: 2/3;  
+}
+.container .container-con .board-con .boardview .postData .imagesOfPost>img{
+  width: 100%;
+  height: 100%;
+}
+
+.container .container-con .board-con .boardview .title {
+  width: inherit;
+  margin: 0 0 15px 0;
+  font-family: "Poppins", Helvetica, sans-serif;
+}
+
+.container .container-con .board-con .boardview .write-info {
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins", Helvetica, sans-serif;
+  font-size: smaller;
+  border-bottom: 1px solid #b7b7b7;
+  margin: 0 0 10px 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.container .container-con .board-con .boardview .write-info .writer {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.container .container-con .board-con .boardview .write-info .writer>img {
+  width: 20px;
+  height: 20px;
+}
+
+.container .container-con .board-con .boardview .content {
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: "Poppins", Helvetica, sans-serif;
+  font-size: medium;
+}
+
+
+/* 버튼 부분 */
+.container .container-con .board-con .btns{
+
+}
+
+
+
+.container .container-con .board-con .btns .like {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.container .container-con .board-con .btns .like>input {
+  width: 85px;
+  line-height: 25px;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  background-color: black;
+  color: #ffffff;
+  transition: 0.3s;
+}
+
+.container .container-con .board-con .btns .like>input:hover {
+  cursor: pointer;
+  background-color: #e4e4e4;
+  color: black;
+}
+
+.container .container-con .board-con .btns .btns-sub {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.container .container-con .board-con .btns .btns-sub .back {
+  border: none;
+  width: 70px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 3px 3px 3px 3px;
+  background-color: black;
+  box-sizing: border-box;
+}
+
+.container .container-con .board-con .btns .btns-sub .back>a {
+  color: #ffffff;
+  font-size: small;
+  font-weight: bold;
+}
+
+.container .container-con .board-con .btns .memberonly {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.container .container-con .board-con .btns .memberonly>a {
+  border: none;
+  width: 70px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 3px 3px 3px 3px;
+  background-color: black;
+  color: #ffffff;
+  font-size: small;
+  font-weight: bold;
+}

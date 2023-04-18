@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>main Index</title>
+    <link rel="stylesheet" href="/css/main/main.css">
+    <script src="/js/main/main.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js" defer></script>
+    <!-- 필수 js -->
+    <script src="/js/common/header.js" defer></script>
+    <script src="/js/common/footer.js" defer></script>
+    <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+    <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+    <script th:src="@{/js/common/chat.js}" defer></script>
+    <!-- 필수 js -->
+</head>
+
+<body>
+    <div class="header" th:replace="/pages/common/Header :: header"></div>
+    <input th:value="${currentPrincipal}" hidden="hidden" id="currentPrincipal">
+
+    <div class="main">
+        <div class="main-con">
+            <div class="imageChange">
+                <ul class="imageChange-con">
+                    <li><a href="#"></a></li>
+                    <!-- <li><a href="#"><img src="/img/main/main1.jpg" alt="main2"></a></li> -->
+                    <!-- <li><a href="#"><img src="/img/main/main2.jpg" alt="main2"></a></li> -->
+                    <!-- <li><a href="#"><img src="/img/main/main3.jpg" alt="main3"></a></li> -->
+                    <!-- <li><a href="#"><img src="/img/main/main4.jpg" alt="main4"></a></li> -->
+                </ul>
+                <div class="controller-box">
+                    <div class="albumShortInfo-con">
+                        <ul class="albumShortInfo">
+                            <li id="title">How deep is your love</li>
+                            <li id="singer">Calvin Harris & Disciples</li>
+                        </ul>
+                    </div>
+                    <div class="change-controller">
+                        <div class="changebuttons">
+                            <div>
+                                <button type="button">
+                                    <div id="t1"></div>
+                                    <div id="t2"></div>
+                                </button>
+                                <button type="button">
+                                    <div id="show"></div>
+                                </button>
+                                <button type="button">
+                                    <div id="f1"></div>
+                                    <div id="f2"></div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="itemsList">
+                <div class="item">
+                    <div class="item-filter">
+                        <ul>
+                            <li>TITLE</li>
+                            <li>TIME</li>
+                            <li>BPM</li>
+                            <li>PRODUCER</li>
+                            <li>GENRE</li>
+                        </ul>
+                    </div>
+                    <div class="items">
+                        <ul th:each="list: ${itemDtoList}">
+                            <li><img src="/img/track/music.png" alt=""></li>
+                            <a th:if="${member !=null}" th:href="@{|/trackDetail/${list.no}/${member}|}">
+                                <li th:text="${list.title}"></li>
+                            </a>
+
+                            <a th:if="${member ==null}" th:href="@{/login}">
+                                <li th:text="${list.title}"></li>
+                            </a>
+                            <li th:text="${list.duration}"></li>
+                            <li th:text="${list.bpm}" class="bpm"></li>
+                            <li th:text="${list.producer}"></li>
+                            <li th:text="${list.genre}" class="genre"></li>
+                            <li><a th:href="@{#}"><img src="/img/track/shopping-bag.png" alt="shopping-bag-icon"></a>
+                                <div th:text="${list.price}" class="price"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chat" th:replace="/pages/common/chatBot :: chatBot"></div>
+    </div>
+    </div>
+
+    <div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+
+
+</body>
+
+</html>

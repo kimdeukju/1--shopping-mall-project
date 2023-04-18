@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+  <meta charset="UTF-8">
+  <title>COMMUNITY</title>
+  <link rel="stylesheet" th:href="@{/css/common/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/board/list.css}">
+  <!-- 필수 js -->
+  <script src="/js/common/header.js" defer></script>
+  <script src="/js/common/footer.js" defer></script>
+  <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+  <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+  <script th:src="@{/js/common/chat.js}" defer></script>
+  <!-- 필수 js -->
+</head>
+
+<body>
+<div class="header" th:replace="/pages/common/Header :: header"></div>
+
+  <div class="container">
+    <div class="container-con">
+
+      <div class="title">
+        <!--페이지 타이틀-->
+        <h1>Community</h1>
+      </div>
+
+      <div class="boardview">
+        <div class="boardinfo">
+          <ul>
+            <li>NO</li>
+            <li>TITLE</li>
+            <li>WHO?</li>
+            <li>HIT</li>
+            <li>TIME</li>
+          </ul>
+        </div>
+
+        <div class="boardlist">
+          <th:block th:each="list: ${boardList}">
+            <ul>
+              <!--글 목록-->
+              <li th:text="${list.no}"></li>
+              <li>
+                <a th:text="${list.title}" th:href="@{|/board/detail/${list.no}|}"></a>
+              </li>
+              <li th:text="${list.writer}"></li>
+              <li th:text="${list.view}"></li>
+              <li th:text="*{#temporals.format(list.createTime, 'HH:mm:ss')}"></li>
+            </ul>
+          </th:block>
+        </div>
+      </div>
+
+      <div class="container-end">
+
+        <div class="end-item">
+          <!--페이징, 검색-->
+          <div class="write-btn" sec:authorize="isAuthenticated()">
+            <th:block th:classappend="${#authorization.expr('isAnonymous()')} ? 'write-prohibit'">
+              <a th:href="@{/board/write}">WRITE</a>
+            </th:block>
+          </div>
+
+          <div class="paging">
+            <a th:href="${boardList.first} ? '#' : @{/board/main(page=${boardList.number-1})}">
+              <img th:src="@{/img/board/pre.png}" alt="">
+            </a>
+            <th:block th:each="page:${#numbers.sequence(startPage, endPage)}">
+              <span th:if="${page==nowPage}" th:text="${page}" th:classappend="nowPage"></span>
+              <span th:unless="${page==nowPage}"><a th:href="@{/board/(page=${page-1})}" th:text="${page}"></a></span>
+            </th:block>
+            <a th:href="${boardList.last} ? '#' : @{/board/main(page=${boardList.number+1})}">
+              <img th:src="@{/img/board/next.png}" alt="">
+            </a>
+          </div>
+
+          <div class="search-form">
+            <form th:action="@{/board/search}" method="get">
+              <select name="" id="">
+                <option value="title">TITLE</option>
+                <option value="writer">WRITER</option>
+              </select>
+              <input type="text" name="search" id="search" class="searchtext" placeholder="Search">
+              <input type="image" th:src="@{/img/board/searchicon.png}" alt="" class="submitbtn">
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div class="chat" th:replace="/pages/common/chatBot :: chatBot"></div>
+    </div>
+  </div>
+
+  <div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <script src="/js/common/header.js" defer></script>
+</head>
+
+<div class="header" th:fragment="header">
+    <div class="header-con">
+        <div class="gnb">
+            <div class="logo">
+                <a th:href="@{/}" sec:authorize="isAnonymous()">
+                    <img src="/img/common/head/logo.png" alt="LogoImage">
+                </a>
+                <a th:href="@{/memberMain}" sec:authorize="isAuthenticated()">
+                    <img src="/img/common/head/logo.png" alt="LogoImage">
+                </a>
+            </div>
+            <div class="main-menu-con">
+                <ul>
+                    <li>
+                        <div class="li-con">
+                            <div class="left-menu">
+                                <ul>
+                                    <li><a th:href="@{/trackList}">Tracks</a></li>
+                                    <li><a th:href="@{/board}">Community</a></li>
+                                    <th:block th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                                        <li><a th:href="@{/admin}">ADMIN</a></li>
+                                    </th:block>
+                                    <th:block th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
+                                        <li><a th:href="@{/#}">FAQ</a></li>
+                                    </th:block>
+                                    <li><a th:href="@{/#}">About</a></li>
+                                    <li><a th:href="@{/#}">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="right-menu">
+                                <input type="text" id="searchBar" size="48" placeholder="Search beats">
+                            </div>
+                            <div class="s-img">
+                                <img src="/img/common/head/magnifier.png" alt="searchImg" id="magnifier">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="li-last">
+                <!--로그인a태그   -->
+                <a th:href="@{/login}" sec:authorize="isAnonymous()"><img src="/img/common/head/login.png"
+                        alt="login"></a>
+                <a sec:authorize="isAuthenticated()" th:href="@{/logout}" id="logout">Log out</a>
+            </div>
+            <div class="li-last" sec:authorize="isAuthenticated()">
+                <!--쇼핑백태그-->
+                <a th:href="@{/cart}"><img src="/img/common/head/shopping-bag.png" alt="shoppingBag"></a>
+                <!--마이페이지 a태그-->
+                <a th:href="@{|/member/mypage/${#authentication.principal.username}|}"><img
+                        src="/img/common/head/login.png"></a>
+            </div>
+        </div>
+    </div>
+</div>

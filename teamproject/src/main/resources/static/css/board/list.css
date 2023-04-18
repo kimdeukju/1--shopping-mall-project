@@ -1,0 +1,237 @@
+@import url("/css/common/reset.css");
+ @import url("/css/common/footer.css");
+ @import url("/css/common/header.css");
+ @import url("/css/common/chat-bot.css");
+
+ .body {
+   font-family: "Poppins", Helvetica, sans-serif;
+ }
+
+ .container {
+   width: 100%;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   box-sizing: border-box;
+   padding: 150px 0;
+     box-sizing: border-box;
+ }
+
+ .container .container-con {
+   width: 100%;
+   max-width: 1200px;
+   display: flex;
+   flex-direction: column;
+   /*padding: 5px 20px;*/
+   box-sizing: border-box;
+ }
+
+ .container .container-con .title {
+   width: 100%;
+   text-align: center;
+   font-family: "Poppins", Helvetica, sans-serif;
+   font-weight: 900;
+   font-size: large;
+   margin: 40px 0;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .boardview {
+   width: 100;
+   flex: 1;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .boardview .boardinfo {
+   width: 100%;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .boardview .boardinfo>ul {
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+   color: #696969;
+   font-weight: bold;
+   font-size: small;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .boardview .boardinfo>ul li {
+   text-align: center;
+   padding: 10px 20px;
+   font-family: "Poppins", Helvetica, sans-serif;
+   box-sizing: border-box;
+   border-bottom: 1px solid #a1a1a1;
+ }
+
+ .container .container-con .boardview .boardinfo>ul li:nth-child(1) {
+   flex: 1;
+ }
+
+ .container .container-con .boardview .boardinfo>ul li:nth-child(2) {
+   flex: 20;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   word-break: break-all;
+ }
+
+ .container .container-con .boardview .boardinfo>ul li:nth-child(3) {
+   flex: 2;
+ }
+
+ .container .container-con .boardview .boardinfo>ul li:nth-child(4) {
+   flex: 1;
+ }
+
+ .container .container-con .boardview .boardinfo>ul li:nth-child(5) {
+   flex: 2;
+ }
+
+
+ .container .container-con .boardview .boardlist {
+   width: 100%;
+   height: 450px;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .boardview .boardlist>ul {
+   display: flex;
+   justify-content: space-between;
+   box-sizing: border-box;
+   border-bottom: 1px dotted #c0c0c0;
+ }
+
+ .container .container-con .boardview .boardlist>ul li {
+   text-align: center;
+   padding: 5px 20px;
+   font-family: "Poppins", Helvetica, sans-serif;
+   font-size: smaller;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .boardview .boardlist>ul li:nth-child(1) {
+   flex: 1;
+ }
+
+ .container .container-con .boardview .boardlist>ul li:nth-child(2) {
+   flex: 20;
+   /*말 줄임 css->제목 길이가 지정된 영역을 초과하면 ...으로 표시*/
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   word-break: break-all;
+ }
+
+ .container .container-con .boardview .boardlist>ul li:nth-child(3) {
+   flex: 2;
+ }
+
+ .container .container-con .boardview .boardlist>ul li:nth-child(4) {
+   flex: 1;
+ }
+
+ .container .container-con .boardview .boardlist>ul li:nth-child(5) {
+   flex: 2;
+ }
+
+ .container .container-con .container-end {
+   padding: 10px;
+   box-sizing: border-box;
+   position: relative;
+   margin: 30px;
+ }
+
+ .container .container-con .container-end .end-item {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .container .container-con .container-end .end-item .write-btn {
+   position: absolute;
+   width: 70px;
+   height: 30px;
+   background-color: #000000;
+   border-radius: 3px 3px 3px 3px;
+   text-align: center;
+ }
+
+ .container .container-con .container-end .end-item .write-btn>a {
+   /* flex: 0 0 65px; */
+   line-height: 30px;
+   color: #ffffff;
+   font-size: small;
+   font-weight: bold;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .container-end .end-item .paging {
+   position: absolute;
+   top: 100%;
+   left: 40%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: "Poppins", Helvetica, sans-serif;
+   font-size: smaller;
+   padding: 0 50px;
+   gap: 10px;
+ }
+
+ .container .container-con .container-end .end-item .paging .nowPage {
+   width: 15px;
+   height: 15px;
+   text-align: center;
+   color: #000000;
+   border-radius: 10px 10px 10px 10px;
+   box-shadow: 1px 2px 10px 1px rgba(138, 138, 138, 0.34);
+ }
+
+ .container .container-con .container-end .end-item .paging>a>img {
+   width: 24px;
+   height: 24px;
+ }
+
+ .container .container-con .container-end .end-item .search-form>form {
+   position: absolute;
+   top: 100%;
+   left: 80%;
+   display: flex;
+   justify-content: space-between;
+   gap: 8px;
+   align-items: center;
+   box-sizing: border-box;
+ }
+
+ .container .container-con .container-end .end-item .search-form>form>select {
+   width: 75px;
+   height: 30px;
+   border: none;
+   background-color: #000000;
+   color: #ffffff;
+   border-radius: 3px 3px 3px 3px;
+   text-align: center;
+   font-weight: bold;
+   font-size: smaller;
+ }
+
+ .container .container-con .container-end .end-item .search-form>form>input.searchtext {
+   width: 150px;
+   height: 30px;
+   padding: 10px;
+   box-sizing: border-box;
+   border: none;
+   background-color: #ffffff;
+   box-shadow: 1px 2px 10px 1px rgba(138, 138, 138, 0.34);
+   border-radius: 3px 3px 3px 3px;
+ }
+
+ .container .container-con .container-end .end-item .search-form>form.submitbtn {
+   border: 1px solid #000000;
+   width: 24px;
+   height: 24px;
+   box-sizing: border-box;
+   display: block;
+   align-items: center;
+ }

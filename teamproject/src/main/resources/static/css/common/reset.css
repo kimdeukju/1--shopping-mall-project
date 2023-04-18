@@ -1,0 +1,24 @@
+/* 홈페이지 전체 폰트 설정 */
+/*@import url('https://fonts.cdnfonts.com/css/helvetica-2');*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", "Helvetica", sans-serif;
+}
+/*html,*/
+body {
+	/* 각 기능의 최상위 요소에 width 100%를 주고, 바로 아래 자식에 width : 1166px을 준다. */
+	width: 100%;
+	height: auto;
+
+	/* header, footer, 그리고 메인 내용과의 간격 정리 */
+}
+a {
+	text-decoration: none;
+	color: #000000;
+}
+ul,
+li {
+	list-style: none;
+}

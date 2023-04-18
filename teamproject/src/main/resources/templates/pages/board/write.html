@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+  <meta charset="UTF-8">
+  <title>WRITE</title>
+  <link rel="stylesheet" th:href="@{/css/common/reset.css}">
+  <link rel="stylesheet" th:href="@{/css/board/write.css}">
+  <!-- 필수 js -->
+  <script src="/js/common/header.js" defer></script>
+  <script src="/js/common/footer.js" defer></script>
+  <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+  <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+  <script th:src="@{/js/common/chat.js}" defer></script>
+  <!-- 필수 js -->
+</head>
+
+<body>
+<div class="header" th:replace="/pages/common/Header :: header"></div>
+
+  <div class="container">
+    <div class="container-con">
+
+      <div class="write-form">
+
+        <form th:action="@{/board/write}" th:object="${boardDto}" method="post" enctype="multipart/form-data">
+          <ul>
+            <li class="li1">
+              <input type="text" th:field="*{title}" placeholder="TITLE" required>
+            </li>
+            <!-- <li class="title-error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></li> -->
+
+            <li class="li2">
+              <img th:src="@{/img/board/youtubeicon.png}" alt="youtube-icon">
+              <input type="url" th:field="*{youtube}" placeholder="insert url" class="li2sub">
+
+              <label th:for="boardFile">
+                <img th:src="@{/img/board/foldericon.png}" alt="folder-icon">
+                <input type="file" th:field="*{boardFile}" class="li2sub2">
+              </label>
+            </li>
+
+            <li class="li3">
+              <textarea name="content" th:field="*{content}" id="content" cols="30" rows="10" placeholder="" required></textarea>
+            </li>
+            <!-- <li class="content-error" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></li> -->
+
+            <li>
+              <input type="text" th:value="${userName}" id="writer" name="writer" readonly hidden>
+            </li>
+
+            <li class="li4">
+              <a th:href="@{/board/}">BACK</a>
+              <input type="submit" value="WRITE" class="write">
+            </li>
+          </ul>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+</body>
+
+</html>

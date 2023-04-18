@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <script src="/js/common/footer.js" defer></script>
+</head>
+
+<div class="footer" th:fragment="footer">
+    <div class="footer-con">
+        <div class="detail-con">
+            <div class="logo">
+                <a th:href="@{/}"><img src="/img/common/footer/logo.png" alt="LogoImage"></a>
+            </div>
+
+            <ul class="contactInfo">
+                <li>
+                    <ul>
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/trackList}">Tracks</a></li>
+                        <li><a th:href="@{#}">Works</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><a th:href="@{#}">FAQ</a></li>
+                        <li><a th:href="@{#}">About</a></li>
+                        <li><a th:href="@{#}">Contact</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <ul>
+                        <li><a th:href="@{#}">Licensing Info</a></li>
+                        <li><a th:href="@{#}">Terms of use</a></li>
+                        <li><a th:href="@{#}">Privacy policy</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="socialContactPoint">
+                <li><a href="{#}" target="_blank"><img src="/img/common/footer/facebook.png" alt="facebook"></a>
+                </li>
+                <li><a href="{#}" target="_blank"><img src="/img/common/footer/youtube.png" alt="youtube"></a>
+                </li>
+                <li><a href="{#}" target="_blank"><img src="/img/common/footer/instagram.png" alt="instagram"></a>
+                </li>
+                <li><a href="{#}" target="_blank"><img src="/img/common/footer/soundcloud.png" alt="soundcloud"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</html>

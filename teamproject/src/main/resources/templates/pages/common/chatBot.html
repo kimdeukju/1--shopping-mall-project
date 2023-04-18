@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>chatBot</title>
+
+</head>
+<body>
+<div class="chat" th:fragment="chatBot">
+    <div id="chat-bot">
+        <div class="wrap">                         <!-- click ->openChat() 호출   -->
+<!--            <input type="button" id="btn-chat-open" onclick="openChat()" value="OPEN">-->
+            <img src="/img/common/chatBot/chatBot.png" alt="ChatBot" id="btn-chat-open" onclick="openChat()" value="OPEN">
+            <dl id="chat-disp">
+
+                <!-- header -->
+                <dt id="chat-header">
+                    <span>Any questions?</span>
+                    <span class="btn-wrap">            <!-- click -> disconnect() 호출   -->
+				<button type="button" id="btn-chat-close" onclick="disconnect()">X</button>
+			</span>
+                </dt>
+
+                <!-- content -->
+                <dd id="chat-content">
+
+                </dd>
+
+                <!-- question -->
+                <dd id="chat-question" class="flex between">
+                    <span class="flex column center"><i></i></span>
+                    <input type="text" id="question" placeholder="Please enter your questions.">
+                    <!-- click -> btnMsgSendClicked() 호출   -->
+                    <button type="button" id="btn-msg-send" onclick="btnMsgSendClicked()">send</button>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

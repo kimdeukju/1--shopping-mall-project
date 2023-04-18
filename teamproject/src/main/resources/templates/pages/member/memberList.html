@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemberList</title>
+  <link rel="stylesheet" th:href="@{/css/member/memberList.css}">
+</head>
+<body>
+<div class="header" th:replace="/pages/common/Header :: header"></div>
+<!--<div class="container">-->
+<!--  <div class="container-con">-->
+<!--    <div class="list">-->
+<!--      <div class="title">-->
+<!--        <h1>Member List</h1>-->
+<!--      </div>-->
+<!--      <div class="list-con">-->
+<!--        <div class="grid">-->
+<!--          <div class="grid-child">-->
+<!--            <div class="list-top">-->
+<!--              <img src="/img/admin/profile.png" alt="프로필이미지">-->
+<!--            </div>-->
+<!--            <div class="list-bottom">-->
+<!--              <div class="bottom-left">-->
+<!--                <p>No</p>-->
+<!--                <p>email</p>-->
+<!--                <p>address</p>-->
+<!--                <p>userName</p>-->
+<!--                <p>phone</p>-->
+<!--                <p>가입시간</p>-->
+<!--              </div>-->
+<!--              <div class="bottom-right">-->
+<!--                <ul th:each="member:${memberList}">-->
+<!--                  <li th:text="${member.no}"></li>-->
+<!--                  <li th:text="${member.email}"></li>-->
+<!--                  <li th:text="${member.address}"></li>-->
+<!--                  <li th:text="${member.userName}"></li>-->
+<!--                  <li th:text="${member.phone}"></li>-->
+<!--                  <li th:text="*{#temporals.format(member.createTime, 'yyyy-MM-dd HH:mm:ss')}"></li>-->
+<!--                </ul>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="container">
+  <div class="container-con">
+    <div class="title">
+      <h1>Member List</h1>
+    </div>
+    <table>
+      <thead>
+      <tr>
+        <th>번호</th>
+        <th>이메일</th>
+        <th>주소</th>
+        <th>이름</th>
+        <th>핸드폰번호</th>
+        <th>권한</th>
+        <th>가입시간</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="member:${memberList}">
+        <td th:text="${member.no}"></td>
+        <td th:text="${member.email}"></td>
+        <td th:text="${member.address}"></td>
+        <td th:text="${member.userName}"></td>
+        <td th:text="${member.phone}"></td>
+        <td th:text="${member.role}"></td>
+        <td th:text="*{#temporals.format(member.createTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+<div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+/* Header */
+
+
+.header {
+    width: 100%;
+    height: auto;
+}
+
+.header .header-con {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 2;
+    background-color: white;
+    box-shadow: 5px 0 10px;
+}
+
+.header .header-con .gnb {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+.header .header-con .gnb .logo{
+    width: 50px;
+    height: 50px;
+} 
+.header .header-con .gnb .logo a img{
+    width: 100%;
+    height: 50px;
+    display: block
+}
+.header .header-con .gnb .main-menu-con {
+    width: auto;
+}
+.header .header-con .gnb .main-menu-con>ul{
+    display: flex;
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+}
+.header .header-con .gnb .main-menu-con>ul>li{
+    display: flex;
+    padding: 0 30px;
+    flex-grow: 1;
+}
+.header .header-con .gnb .main-menu-con>ul>li>div{
+    padding: 0 30px;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con{
+    display: flex;
+    flex-direction: column;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con .left-menu>ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 돋보기 누르면 검색창 뜨게 하기 */
+.header .header-con .gnb .main-menu-con>ul>li{
+    position: relative;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con{
+    width: auto;
+    position: absolute;
+    left: -530px;
+}
+/* .header .header-con .gnb .main-menu-con>ul>li .li-con .left-menu{
+    display: flex;
+    justify-content: center;
+} */
+.header .header-con .gnb .main-menu-con>ul>li .li-con .left-menu ul{
+    display: flex;
+    line-height: inherit;
+    width: auto;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con .left-menu ul>li{
+    line-height: 50px;
+    padding: 0 20px;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con .right-menu{
+    display: flex;
+    align-items: center;
+    top: 10px;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con .right-menu input{
+    line-height: 30px;
+    padding: 0 20px;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con>div:nth-child(2){
+    display: flex;
+    justify-content: center;
+}
+
+.header .header-con .gnb .main-menu-con>ul>li .s-img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.header .header-con .gnb .main-menu-con>ul>li .s-img img{
+    width: 100%;
+    height: 50px;
+    display: block
+}
+/* .header .header-con .gnb .main-menu-con>ul>li .li-con .left-menu{
+    position: absolute;
+    visibility: hidden;
+}
+.header .header-con .gnb .main-menu-con>ul>li .li-con .right-menu{
+    position: absolute;
+    visibility: hidden;
+} */
+
+.header .header-con .gnb .main-menu-con>ul li.li-last{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 255, 255, 0);
+    height: 50px;
+    column-gap: 70px;
+}
+
+.header .header-con .gnb .main-menu-con>ul li.li-last a{
+    width: 50px;
+    padding: 10px;
+    cursor: pointer;
+
+}
+.header .header-con .gnb .main-menu-con>ul li.li-last a img{
+    width: 30px;
+    height: 30px;
+    display: block;
+    /* cursor: pointer; */
+}
+
+
+
+.hide2{
+    position: absolute;
+    visibility: hidden;
+    transition: all .1s cubic-bezier(.19,1.03,.95,.17) ;
+}
+
+.show{
+    position: absolute;
+    visibility: visible;
+    transition: all .1s ease-in-out;
+}
+
+
+
+
+
+
+
+

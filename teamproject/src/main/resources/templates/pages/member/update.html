@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" th:href="@{/css/member/update.css}">
+    <script src="/static/js/header.js" defer></script>
+    <script src="/static/js/footer.js" defer></script>
+</head>
+<body>
+<div class="header" th:insert="/pages/common/Header :: header"></div>
+
+<div class="container">
+    <div class="container-con">
+        <h1 class="logo">Edit My Infomation</h1>
+        <div class="accont-row">
+            <form th:action="@{/member/update}" method="post"
+                  th:object="${memberDto}">
+                <div class="row-text">
+                    <label>E-mail address</label> <br>
+                    <input type="hidden" name="no" th:value="${member.no}">
+                    <input class="info-text" type="email" name="email"
+                           minlength="4" maxlength="15" th:value="${member.email}" readonly>
+                </div>
+                <div class="row-text">
+                    <label>Password</label> <br>
+                    <input class="info-text" type="password" name="password"
+                           minlength="4" maxlength="10" th:value="${member.password}">
+                </div>
+                <div class="row-text">
+                    <label class="address">Billing address</label> <br>
+                    <input class="info-text" type="text" name="address"
+                           minlength="1" maxlength="20" th:value="${member.address}">
+                </div>
+                <div class="row-text">
+                    <label>Username</label> <br>
+                    <input class="info-text" type="text" name="userName"
+                           minlength="2" maxlength="3" th:value="${member.userName}">
+                </div>
+
+                <div class="row-text">
+                    <label>Phone-number</label> <br>
+                    <input class="info-text" type="text" name="phone"
+                           minlength="11" maxlength="11" th:value="${member.phone}">
+                </div>
+
+                <div class="user-up">
+                    <input type="submit" value="회원수정">
+                    <button><a th:href="@{|/member/delete/${member.no}|}">회원탈퇴</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="footer" th:insert="/pages/common/Footer :: footer"></div>
+
+</body>
+</html>

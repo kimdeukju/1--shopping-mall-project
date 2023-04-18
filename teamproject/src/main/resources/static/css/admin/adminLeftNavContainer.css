@@ -1,0 +1,43 @@
+@import url(/css/common/reset.css);
+
+
+/* 전체 글자 크기를 0.6rem으로 정해놓아서, height: auto 설정에 따라
+높이를 맞추었다.
+*/
+.leftNavBarCon .leftNavBarCon-lists{
+    width: auto;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 40px;
+    font-size: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+}
+.leftNavBarCon .leftNavBarCon-lists>*{
+    height: auto;
+    padding: 5px;
+    width: auto;
+    position: relative;
+}
+.leftNavBarCon .leftNavBarCon-lists>*>*{
+    width: 180px;
+}
+.leftNavBarCon .leftNavBarCon-lists>*>*:nth-child(1){
+    font-size: 20px;
+    color: white;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+.leftNavBarCon .leftNavBarCon-lists>*>*:nth-child(2){
+    padding-left: 50px;
+}
+.leftNavBarCon .leftNavBarCon-lists>*>*:nth-child(2) li{
+    display: flex;
+    align-items: center;
+}
+.leftNavBarCon .leftNavBarCon-lists>*>*:nth-child(2) li a{
+    color:rgb(236, 236, 236, 0.87);
+}

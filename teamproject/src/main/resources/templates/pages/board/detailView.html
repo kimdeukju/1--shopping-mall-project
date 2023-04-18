@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+<link rel="shortcut icon" type="image/png" th:href="@{/img/common/head/infinity.png}" />
+    <meta charset="UTF-8">
+    <title th:text="${detail.title}"></title>
+    <script th:src="@{/js/board/eachPost2.js}" defer></script>
+    <script src="http://code.jquery.com/jquery-latest.js" defer></script>
+    <link rel="stylesheet" th:href="@{/css/common/reset.css}">
+    <link rel="stylesheet" th:href="@{/css/board/detailView.css}">
+    <link rel="stylesheet" th:href="@{/css/board/comment.css}">
+    <!-- 필수 js -->
+    <script src="/js/common/header.js" defer></script>
+    <script src="/js/common/footer.js" defer></script>
+    <script th:src="@{/webjars/sockjs-client/sockjs.min.js}" defer></script>
+    <script th:src="@{/webjars/stomp-websocket/stomp.min.js}" defer></script>
+    <script th:src="@{/js/common/chat.js}" defer></script>
+    <!-- 필수 js -->
+</head>
+
+<body>
+<div class="header" th:replace="/pages/common/Header :: header"></div>
+
+<div class="container">
+    <div class="container-con">
+        <div class="board-con">
+
+            <div class="boardview">
+                <div class="title">
+                    <h3 th:text="${detail.title}">제목</h3>
+                </div>
+
+                <div class="write-info">
+                    <div class="writer">
+                        <img th:src="@{/img/board/usericon.png}" alt="">
+                        <span th:text="${detail.writer}">작성자</span>
+                    </div>
+                    <span th:text="*{#temporals.format(detail.createTime, 'HH:mm:ss')}">작성시간</span>
+                </div>
+
+                <div class="postData">
+                    <div class="content" th:text="${detail.content}">
+                        내용
+                    </div>
+
+                    <!--유튜브 영상 링크 송출-->
+                    <div id="player"></div>
+                    <input th:value="${youtubeSource}" id="youtubeSource" hidden="hidden">
+                    <div class="imagesOfPost">
+                        <img th:src="@{|/upload/${detail.newName}|}" alt="user upload image">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="btns">
+                <div class="like">
+                    <input type="button" value="🤍 I LIKE IT">
+                </div>
+                <div class="btns-sub">
+                    <div class="back">
+                        <a th:href="@{/board/}">BACK</a>
+                    </div>
+                    <div class="memberonly" sec:authorize="isAuthenticated()">
+                        <!--회원 일치하는지만 처리, 관리자 접근 권한X-->
+                        <th:block th:if="${#authentication.principal.username} == ${detail.writer} or ${#authorization.expression('hasRole(''ADMIN'')')}">
+                            <a th:href="@{|/board/update/${detail.no}|}">MODIFY</a>
+                            <a th:href="@{|/board/delete/${detail.no}|}">DELETE</a>
+                        </th:block>
+                        <!--th:if="${#authentication.principal.userName} == ${detail.userName}"-->
+                        <!--th:unless="${#authorization.expression('hasRole('ADMIN')')}"-->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--댓글창-->
+<div class="comment">
+    <div class="comment-con">
+        <ul class="commentInput">
+            <li>
+                <input name="boardId" id="boardNo" th:value="${detail.no}" hidden="hidden">
+                <input type="text" name="re_content" id="commentsInputData" placeholder="Type comments" size="50"
+                       required>
+            </li>
+            <li>
+                <button class="commentSubmit" type="button">WRITE</button>
+            </li>
+        </ul>
+        <div class="comment-data">
+            <div class="comment-column">
+                <ul class="column">
+                    <li>
+                        <div>WHO?</div>
+                    </li>
+                    <li>
+                        <div>🎵</div>
+                    </li>
+                    <li>
+                        <div>TIME</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="comment-lists">
+                <ul class="lists" th:each="comment:${detailComments}">
+                    <li class="child">
+                        <ul id="comments">
+                            <li>
+                                <input id="No" name="id" th:value="${comment.id}" readonly>
+                                <input id="re_writer" th:value="${comment.re_writer}" name="re_writer" hidden="hidden">
+                            </li>
+                            <li>
+                              <textarea id="Re_content" name="re_content" th:text="${comment.re_content}" rows="4"
+                                        cols="20"></textarea>
+                            </li>
+                            <li>
+                                <input id="CreateTime" th:value="*{#temporals.format(comment.createTime, 'HH:mm:ss')}" readonly>
+                            </li>
+                            <!--회원 일치하는지만 처리-->
+                            <li class="memberAction hide">
+                                <ul>
+                                  <li>
+                                    <button id="update">Update</button>
+                                  </li>
+                                  <li>
+                                    <button type="button" id="delete">Delete</button>
+                                  </li>
+                                </ul>
+                              </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer" th:replace="/pages/common/Footer :: footer"></div>
+
+</body>
+
+</html>
