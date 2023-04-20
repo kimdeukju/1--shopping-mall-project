@@ -121,8 +121,8 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
  
 <details>
 <summary>Login</summary>
- 
  ### Login Controller
+ 
 ```
 @GetMapping("/login")                               //로그인
     public String login(@RequestParam(value = "error" ,required = false ) String error,
@@ -133,11 +133,42 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
         return "/pages/member/login";
     }
 ```
-
+ ### Login View
  ![image](https://user-images.githubusercontent.com/106312692/233266010-59991354-ab58-4050-9c8a-f0ef39a295ff.png)
+ 
+ ### Login Fail
  ![image](https://user-images.githubusercontent.com/106312692/233266097-1b648539-9e44-4aed-83f4-edf345692f0e.png)
  
 </details>
 
-
+<details>
+<summary>Create</summary>
+ 
+ ### Controller
+```
+@GetMapping("/join")                                //회원가입페이지 이동
+    public String join(Model model) {
+        model.addAttribute("memberDto", new MemberDto());
+        return "/pages/member/join";
+    }
+```
+ ### Controller
+ ```
+ @PostMapping("/join")                               //form 받아 회원가입실행
+    public String joinPost(@Valid MemberDto memberDto,
+                           BindingResult result) {
+        if (result.hasErrors()) {
+            return "/pages/member/join";
+        }
+//        Admin 입력하기
+        if(memberDto.getEmail().equals("admin@gmail.com")){
+            memberService.insertAdmin(memberDto);
+            return "/pages/admin/adminindex";
+        }
+        memberService.insertMember(memberDto);
+        System.out.println("회원가입 성공");
+        return "redirect:/login";
+    }
+ ```
+</details>
 
