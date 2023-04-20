@@ -15,7 +15,7 @@
 - 팀원4 : 허인경 - 게시판서비스(CRUD), PPT제작
 
 ## 개발환경
-![image](https://user-images.githubusercontent.com/106312692/233262427-fdc7c793-0b40-4ae0-ba83-0066d97e8472.png)
+![image](https://user-images.githubusercontent.com/106312692/233287521-0a67e2a4-5419-463b-b516-f081c55e1711.png)
 
 ## 프로젝트 소개
 ![image](https://user-images.githubusercontent.com/106312692/233262665-88aacd9f-825c-4203-a2ba-13540fe2f408.png)
