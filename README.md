@@ -2,6 +2,7 @@
 
 
 ## Table <!-- omit in toc -->
+<details>
 
 - [AuthenticationFailureHandler](#AuthenticationFailureHandler)
 - [UserDetailSecurity](#UserDetailSecurity)
