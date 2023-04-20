@@ -33,7 +33,7 @@
 <details>
 <summary>Security</summary>
  
- #### WebSecurity
+ ### WebSecurity
  
 ```
  @Bean
@@ -68,5 +68,76 @@
         return new BCryptPasswordEncoder();
     }
 }
+ 
 ```
+### UserDetailSecurity
+
+ ```
+ //아이디 체크 -> 인증과정
+    @Override                               //로그인할 id
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        //id 정해지면 레파지토리에서 쿼리메소드 생성(findBy??)
+        Optional<MemberEntity> memberEmail = memberRepository.findByEmail(email);
+        if (!memberEmail.isPresent()) {
+            throw new UsernameNotFoundException("사용자가 없습니다.");
+        }
+        MemberEntity memberEntity = memberEmail.get();              // 사용자가 있으면 get
+        //인증된 회원의 인가(권한 설정)
+        return User.builder()    //스프링관리자 User 역할을 빌더로 간단하게만듬
+                .username(memberEntity.getEmail())
+                .password(memberEntity.getPassword())
+                .roles(memberEntity.getRole().toString())
+                .build();
+    }
+}
+```
+ ### CustomAuthFailureHandler
+ 
+ ```
+ @Component
+public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHandler {
+    @Override
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+                                        AuthenticationException exception) throws IOException, ServletException {
+        String errorMessage;
+        if (exception instanceof BadCredentialsException){
+            errorMessage ="아이디 또는 비밀번호가 맞지 않습니다. 다시 확인해주세요.";
+        }else if (exception instanceof InternalAuthenticationServiceException) {
+            errorMessage = "내부적으로 발생한 시스템 문제로 인해 요청을 처리할 수없습니다 관리자에게 문의해주세요.";
+        }else if (exception instanceof UsernameNotFoundException) {
+            errorMessage = "계정이 존재하지 않습니다. 회원가입 진행 후 로그인 해주세요.";
+        }else if (exception instanceof AuthenticationCredentialsNotFoundException) {
+            errorMessage = "인증 요청이 거부되었습니다. 관리자에게 문의하세요.";
+        }else{
+            errorMessage="알 수 없는 이유로 로그인에 실패하였습니다 관리자에게 문의하세요";
+        }
+        errorMessage = URLEncoder.encode(errorMessage, "UTF-8");
+        setDefaultFailureUrl("/login?error=true&exception="+errorMessage);
+        super.onAuthenticationFailure(request, response, exception);
+    }
+}
+ ```
 </details>
+ 
+<details>
+<summary>Login</summary>
+ 
+ ### Login Controller
+```
+@GetMapping("/login")                               //로그인
+    public String login(@RequestParam(value = "error" ,required = false ) String error,
+                        @RequestParam(value = "exception" ,required = false)String exception,
+                        Model model) {
+    model.addAttribute("error",error);
+    model.addAttribute("exception",exception);
+        return "/pages/member/login";
+    }
+```
+
+ ![image](https://user-images.githubusercontent.com/106312692/233266010-59991354-ab58-4050-9c8a-f0ef39a295ff.png)
+ ![image](https://user-images.githubusercontent.com/106312692/233266097-1b648539-9e44-4aed-83f4-edf345692f0e.png)
+ 
+</details>
+
+
+
