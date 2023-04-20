@@ -429,3 +429,81 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
 
   </blockquote></details>
 
+===================================================================================================================================================================
+   
+<details><summary>Update</summary><blockquote>
+  
+ 
+<details><summary>Controller</summary><blockquote>
+  
+ ```
+ @GetMapping("/update/{email}")                           //나의 정보를 가져가서 회원수정페이지 입장
+    public String info(@PathVariable String email, Model model) {
+        MemberDto memberDto = memberService.memberDetail(email);
+        model.addAttribute("member", memberDto);
+        return "/pages/member/update";
+    }
+    @PostMapping("/update")                                  //회원수정 실행
+    public String updatePost(@ModelAttribute MemberDto memberDto) {
+        memberService.updateOk(memberDto);
+        return "redirect:/";
+ ```
+  </blockquote></details>
+ 
+ <details><summary>Service</summary><blockquote>
+  
+  ```
+  @Transactional  //회원수정
+    public void updateOk(MemberDto memberDto) {
+        MemberEntity memberEntity=MemberEntity.updateMemberEntity(memberDto,passwordEncoder);
+        memberRepository.save(memberEntity);
+    }
+  ```
+  </blockquote></details>
+ 
+ 
+<details><summary>View</summary><blockquote>
+  
+ <details><summary>Html</summary><blockquote>
+  
+  ```
+<div class="container">
+    <div class="container-con">
+        <h1 class="logo">Edit My Infomation</h1>
+        <div class="accont-row">
+            <form th:action="@{/member/update}" method="post" th:object="${memberDto}">
+                <div class="row-text"><label>E-mail address</label> <br>
+                    <input type="hidden" name="no" th:value="${member.no}">
+                    <input class="info-text" type="email" name="email" minlength="4" maxlength="15" th:value="${member.email}" readonly>
+                </div>
+                <div class="row-text"><label>Password</label> <br>
+                    <input class="info-text" type="password" name="password" minlength="4" maxlength="10" th:value="${member.password}">
+                </div>
+                <div class="row-text"><label class="address">Billing address</label> <br>
+                        <input class="info-text" type="text" name="zip_code" th:value="${member.zip_code}" ><br>
+                        <input class="info-text" type="text" name="homeAddress" th:value="${member.homeAddress}" ><br>
+                        <input class="info-text" type="text" name="DetailAddress" th:value="${member.DetailAddress}" >
+                </div>
+                <div class="row-text"><label>Username</label> <br>
+                    <input class="info-text" type="text" name="userName" minlength="2" maxlength="3" th:value="${member.userName}">
+                </div>
+                <div class="row-text"><label>Phone-number</label> <br>
+                    <input class="info-text" type="text" name="phone" minlength="11" maxlength="11" th:value="${member.phone}">
+                </div>
+                <div class="user-up"><input type="submit" value="회원수정">
+                    <button><a th:href="@{|/member/delete/${member.no}|}">회원탈퇴</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  ```
+  </blockquote></details>
+
+ ![image](https://user-images.githubusercontent.com/106312692/233286441-78348d04-2bf4-4b29-9e2c-dc36f73bf182.png)
+
+
+  </blockquote></details>
+ 
+  </blockquote></details>
+   
