@@ -501,9 +501,52 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
   </blockquote></details>
 
  ![image](https://user-images.githubusercontent.com/106312692/233286441-78348d04-2bf4-4b29-9e2c-dc36f73bf182.png)
-
-
+  </blockquote></details>
+  </blockquote></details>
+   ===================================================================================================================================================================
+   
+<details><summary>Delete</summary><blockquote>
+  
+<details><summary>Controller</summary><blockquote>
+  
+ ```
+ @GetMapping("/delete/{no}")                             //회원 탈퇴후 security logout
+    public String delete(@PathVariable Long no) {
+        int rs = memberService.deleteOk(no);
+        if (rs == 1) {
+            System.out.println("회원탈퇴 실패");
+            return null;
+        }
+        System.out.println("회원탈퇴 성공");
+        return "redirect:/logout";
+    }
+ ```
   </blockquote></details>
  
+<details><summary>Service</summary><blockquote>
+  
+ ```
+ @Transactional //회원삭제
+    public int deleteOk(Long id) {
+        MemberEntity memberEntity = memberRepository.findById(id).get();
+        memberRepository.delete(memberEntity);
+        if(memberRepository.findById(id)!=null){
+            return 0;
+        }
+        return 1;
+    }
+ ```
   </blockquote></details>
+
+<details><summary>Html</summary><blockquote>
+ 
+ ```
+ <button><a th:href="@{|/member/delete/${member.no}|}">회원탈퇴</a></button>
+ ```
+  </blockquote></details>
+
+
+  </blockquote></details>
+
+   
    
