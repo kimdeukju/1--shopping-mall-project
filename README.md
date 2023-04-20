@@ -2,8 +2,9 @@
 
 
 ## Table <!-- omit in toc -->
-<details>
 
+<details>
+<summary>메인 페이지</summary>
 - [AuthenticationFailureHandler](#AuthenticationFailureHandler)
 - [UserDetailSecurity](#UserDetailSecurity)
 - [WebSecurity](#WebSecurity)
