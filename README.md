@@ -92,7 +92,7 @@
 }
 ```
 </details>
- ===================================================================================================================================================================
+ 
 <details>
 <summary>Login</summary><blockquote>
  
@@ -148,7 +148,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
  </blockquote></details>
 </blockquote></details>
 
-  ===================================================================================================================================================================
+  
 <details><summary>Create</summary><blockquote>
  
  <details><summary>Controller</summary><blockquote>
@@ -363,7 +363,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
   
 <blockquote></details>
 
-   ===================================================================================================================================================================
+   
   <details><summary>Read</summary><blockquote>
   
    <details><summary>Controller</summary><blockquote>
@@ -429,7 +429,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
 
   </blockquote></details>
 
-===================================================================================================================================================================
+
    
 <details><summary>Update</summary><blockquote>
   
@@ -503,7 +503,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
  ![image](https://user-images.githubusercontent.com/106312692/233286441-78348d04-2bf4-4b29-9e2c-dc36f73bf182.png)
   </blockquote></details>
   </blockquote></details>
-   ===================================================================================================================================================================
+   
    
 <details><summary>Delete</summary><blockquote>
   
