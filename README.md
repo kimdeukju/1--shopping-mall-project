@@ -251,5 +251,107 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
     private Role role;
  ```
   </blockquote></details>
+  
+  <details><summary>카카오 우편번호 api</summary><blockquote>
+   
+   <details><summary>Js</summary><blockquote>
+    
+```
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+                    function sample4_execDaumPostcode() {
+                      new daum.Postcode({
+                        oncomplete: function (data) {
+                          var roadAddr = data.roadAddress; // 도로명 주소 변수
+                          var extraRoadAddr = ''; // 참고 항목 변수
+                          if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraRoadAddr += data.bname;
+                          }
+                          if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                          }
+                          if (extraRoadAddr !== '') {
+                            extraRoadAddr = ' (' + extraRoadAddr + ')';
+                          }
+                          document.getElementById('sample4_postcode').value = data.zonecode;
+                          document.getElementById("sample4_roadAddress").value = roadAddr;
+                          // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                          if (roadAddr !== '') {
+                            document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                          } else {
+                            document.getElementById("sample4_extraAddress").value = '';
+                          }
+                          var guideTextBox = document.getElementById("guide");
+                          // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                          if (data.autoRoadAddress) {
+                            var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                            guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                            guideTextBox.style.display = 'block';
+                          } else if (data.autoJibunAddress) {
+                            var expJibunAddr = data.autoJibunAddress;
+                            guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                            guideTextBox.style.display = 'block';
+                          } else {
+                            guideTextBox.innerHTML = '';
+                            guideTextBox.style.display = 'none';
+                          }
+                        }
+                      }).open();
+                    }
+                  </script>
+ ```
+  </blockquote></details>
+
+  </blockquote></details>
+  
+  <details><summary>View</summary><blockquote>
+   <details><summary>html</summary><blockquote>
+    
+ ```
+    <div class="container">
+    <div class="join">
+        <div class="join-form">
+            <form th:action="@{/join}" method="post" th:object="${memberDto}">
+                <ul>
+                    <li class="s1">Sign Up</li>
+                    <li class="s2"><input type="email" th:field="*{email}" name="email" id="email" placeholder="Enter Email" class="text" minlength="4" maxlength="30">
+                        <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        <input type="button" value="중복확인" id="emailChecked"></li>
+                    <li class="s2"><input type="password" th:field="*{password}" name="password" id="password" placeholder="Enter Password" class="text" minlength="4" maxlength="10">
+                        <span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span></li>
+                    <div class="adrress">
+                        <input type="text" id="sample4_postcode" th:field="${memberDto.zip_code}" placeholder="우편번호">
+                        <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+                        <input type="text" id="sample4_roadAddress" th:field="${memberDto.homeAddress}" placeholder="도로명주소" size="30">
+                        <span id="guide" style="color:#999;display:none"></span>
+                        <input type="text" id="sample4_detailAddress" th:field="${memberDto.DetailAddress}" placeholder="상세주소" size="30">
+                    </div>
+                    <li class="s2"><input type="text" th:field="*{userName}" id="yy" placeholder="Enter Name" class="int" minlength="2" maxlength="3">
+                        <span class="error" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span></li>
+                    <li class="s2">
+                        <input type="text" th:field="*{phone}" name="phone" id="phone" placeholder="Phone Number" class="s5" minlength="11" maxlength="11">
+                        <span class="error" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span>
+                    </li>
+                    <li class="s4"><input type="submit" class="joinOk" value="sign up"></li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</div>
+```
+</blockquote></details>
+  
+   #### create
+   ![image](https://user-images.githubusercontent.com/106312692/233277145-d68a28c9-404d-4a2d-bf20-3c7882adca30.png)
+
+   #### Fail
+   ![image](https://user-images.githubusercontent.com/106312692/233277281-7edf20f8-cbb0-4405-b9d3-3504b40d47ed.png)
+
+   #### 우편번호Api
+   ![image](https://user-images.githubusercontent.com/106312692/233277438-02e57625-a4e6-4fe6-809f-be3d72e4abf8.png)
+
+  </blockquote></details>
+  
 <blockquote></details>
 
