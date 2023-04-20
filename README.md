@@ -229,5 +229,27 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
     private LocalDateTime updateTime;// 수정 시에 적용
    ```
   </blockquote></details>
+  
+  
+<details><summary>Entity</summary><blockquote>
+ 
+  ### Entity
+ ```
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_no")
+    private Long no;
+    @Column(nullable = false,unique = true)
+    private String email;
+    private String password;
+    private String zip_code;
+    private String homeAddress;
+    private String DetailAddress;
+    private String userName;
+    private String phone;
+    @Enumerated(EnumType.STRING)
+    private Role role;
+ ```
+  </blockquote></details>
 <blockquote></details>
 
