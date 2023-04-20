@@ -364,3 +364,68 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
 <blockquote></details>
 
    ===================================================================================================================================================================
+  <details><summary>Read</summary><blockquote>
+  
+   <details><summary>Controller</summary><blockquote>
+    
+  ```
+    @GetMapping("/mypage/{email}")                           //나의 정보 가져온 후 mypage 입장
+    public String membermypage(@PathVariable String email, Model model) {
+        MemberDto memberDto = memberService.memberDetail(email);
+        model.addAttribute("member", memberDto);
+        return "/pages/member/mypage";
+    }
+  ```
+  </blockquote></details>
+   
+   <details><summary>Service</summary><blockquote>
+  
+  ```
+    public MemberDto memberDetail(String email) {
+        Optional<MemberEntity> memberEntity=memberRepository.findByEmail(email);
+        if (!memberEntity.isPresent()){
+            return null;
+        }
+        MemberDto memberDto=MemberDto.updateMemberDto(memberEntity.get());
+        return memberDto;
+    }
+  ```
+  </blockquote></details>
+
+   <details><summary>View</summary><blockquote>
+     
+   <details><summary>Html</summary><blockquote>
+      
+   ```
+      <div class="container">
+    <div class="container-con">
+        <h1 class="logo">Credentials</h1>
+        <div class="accont-row">
+            <div class="row-text"><label>E-mail address</label> <br>
+                <input class="info-text" type="text" th:value="${member.email}" readonly>
+            </div>
+            <div class="row-text"><label class="address">Billing address</label> <br>
+                <input class="info-text" type="text"  th:value="${member.zip_code}" readonly><br>
+                <input class="info-text" type="text"  th:value="${member.homeAddress}" readonly><br>
+                <input class="info-text" type="text"  th:value="${member.DetailAddress}" readonly>
+            </div>
+            <div class="row-text"><label>Username</label> <br>
+                <input class="info-text" type="text"  th:value="${member.userName}" readonly>
+            </div>
+            <div class="row-text"><label>Phone-number</label> <br>
+                <input class="info-text" type="text"  th:value="${member.phone}" readonly>
+            </div>
+            <div class="user-up">
+                <button><a th:href="@{|/member/update/${#authentication.principal.username}|}">회원수정</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+ ```
+  </blockquote></details>
+    
+  ![image](https://user-images.githubusercontent.com/106312692/233283584-83c0c647-3036-4f60-a277-6c12fb34da9f.png)
+   </blockquote></details>
+
+  </blockquote></details>
+
