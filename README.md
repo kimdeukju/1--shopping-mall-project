@@ -91,8 +91,26 @@
     }
 }
 ```
- ### CustomAuthFailureHandler
+</details>
+ ===================================================================================================================================================================
+<details>
+<summary>Login</summary><blockquote>
  
+ <details><summary>Controller</summary><blockquote>
+ 
+```
+@GetMapping("/login")                               //로그인
+    public String login(@RequestParam(value = "error" ,required = false ) String error,
+                        @RequestParam(value = "exception" ,required = false)String exception,
+                        Model model) {
+    model.addAttribute("error",error);
+    model.addAttribute("exception",exception);
+        return "/pages/member/login";
+    }
+```
+ </blockquote></details>
+ <details><summary>Login Fail Handler</summary><blockquote>
+  
  ```
  @Component
 public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHandler {
@@ -117,30 +135,20 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
     }
 }
  ```
-</details>
+  </blockquote></details>
  
-<details>
-<summary>Login</summary>
- ### Login Controller
- 
-```
-@GetMapping("/login")                               //로그인
-    public String login(@RequestParam(value = "error" ,required = false ) String error,
-                        @RequestParam(value = "exception" ,required = false)String exception,
-                        Model model) {
-    model.addAttribute("error",error);
-    model.addAttribute("exception",exception);
-        return "/pages/member/login";
-    }
-```
+ <details><summary>View</summary><blockquote>
+  
  ### Login View
  ![image](https://user-images.githubusercontent.com/106312692/233266010-59991354-ab58-4050-9c8a-f0ef39a295ff.png)
  
  ### Login Fail
  ![image](https://user-images.githubusercontent.com/106312692/233266097-1b648539-9e44-4aed-83f4-edf345692f0e.png)
  
-</details>
+ </blockquote></details>
+</blockquote></details>
 
+  ===================================================================================================================================================================
 <details><summary>Create</summary><blockquote>
  
  <details><summary>Controller</summary><blockquote>
@@ -355,3 +363,4 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
   
 <blockquote></details>
 
+   ===================================================================================================================================================================
