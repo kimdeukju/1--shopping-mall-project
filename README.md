@@ -548,5 +548,14 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
 
   </blockquote></details>
 
+   <hr>
    
+   ## 후기
    
+   한달간 진행된 첫 프로젝트 입니다 막막한 부분도 있었고 힘든 부분도 많았습니다.
+   
+   팀원들과 소통하고 협업하며 좋은 경험을 할 수 있었던거 같습니다.
+   
+   제 역할을 완벽하게 구현하지 못한점이 많이 아쉬운점인거 같습니다.
+   
+   팀원들과 코드리뷰를 통하여 다음 프로젝트에서는 더 좋은 개발을 해보도록 하겠습니다.
