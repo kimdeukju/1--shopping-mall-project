@@ -141,10 +141,11 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
  
 </details>
 
-<details>
-<summary>Create</summary>
+<details><summary>Create</summary><blockquote>
  
- ### Controller
+ <details><summary>Controller</summary><blockquote>
+  
+  ### Get Controller
 ```
 @GetMapping("/join")                                //회원가입페이지 이동
     public String join(Model model) {
@@ -152,7 +153,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
         return "/pages/member/join";
     }
 ```
- ### Controller
+ ### Post Controller
  ```
  @PostMapping("/join")                               //form 받아 회원가입실행
     public String joinPost(@Valid MemberDto memberDto,
@@ -170,5 +171,63 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
         return "redirect:/login";
     }
  ```
-</details>
+  ### 중복체크
+  ```
+  @PostMapping("/emailChecked")    //회원가입 email 중복체크버튼
+    public @ResponseBody int nameChecked(
+            @RequestParam String email) {
+        int rs = memberService.findByUserNameDo(email);
+        return rs;
+    }
+  ```
+   </blockquote></details>
+
+ <details><summary>Service</summary><blockquote>
+ 
+  ```
+  @Transactional  // 회원추가
+    public void insertMember(MemberDto memberDto) {
+        MemberEntity memberEntity= MemberEntity.memberEntity(memberDto,passwordEncoder);
+        memberRepository.save(memberEntity);
+    }
+    @Transactional  // admin추가
+    public void insertAdmin(MemberDto memberDto) {
+        MemberEntity memberEntity= MemberEntity.adminEntity(memberDto,passwordEncoder);
+        memberRepository.save(memberEntity);
+    }
+    @Transactional  //회원가입 이메일 중복체크
+    public int findByUserNameDo(String email) {
+        Optional<MemberEntity> memberEntity =memberRepository.findByEmail(email);
+        if(memberEntity.isPresent()){
+            //이름이있으면(중복)
+            return 0;
+        }else {
+            //이름이없으면(중복x)
+            return 1;
+        }
+    }
+  ```
+ </blockquote></details>
+  
+  <details><summary>Dto</summary><blockquote>
+   
+   ```
+   private Long no;
+    @Pattern(regexp = "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",message = "이메일 형식이 올바르지 않습니다.")
+    private String email;
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\\W)(?=\\S+$).{8,16}",message = "비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.")
+    private String password;
+    @Pattern(regexp = "^[ㄱ-ㅎ가-힣]{3,4}$", message = "정확한 이름을 입력해주세요")
+    private String userName;
+    @Pattern(regexp = "^\\d{3}\\d{3,4}\\d{4}$",message = "정확한 핸드폰번호를입력하세요")
+    private String phone;
+    private String zip_code;
+    private String homeAddress;
+    private String DetailAddress;
+    private Role role;
+    private LocalDateTime createTime; //생성시에만 적용
+    private LocalDateTime updateTime;// 수정 시에 적용
+   ```
+  </blockquote></details>
+<blockquote></details>
 
