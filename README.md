@@ -560,5 +560,7 @@ public class CustomAuthFailureHandler extends SimpleUrlAuthenticationFailureHand
    
    팀원들과 코드리뷰를 통하여 다음 프로젝트에서는 더 좋은 개발을 해보도록 하겠습니다.
    
+   귀한시간 읽어주셔서 감사합니다
+   
    ![image](https://user-images.githubusercontent.com/106312692/233289183-b20f6089-befe-41e2-a196-37405c53de08.png)
 
